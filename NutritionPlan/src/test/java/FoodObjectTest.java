@@ -3,6 +3,11 @@ import java.util.*;
 
 import org.junit.Test;
 
+/**
+* Tester for FoodObject methods
+* @author Brandon
+*/
+
 public class FoodObjectTest {
 
 	@Test

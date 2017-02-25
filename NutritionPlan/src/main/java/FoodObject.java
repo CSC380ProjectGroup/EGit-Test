@@ -1,5 +1,10 @@
 import java.util.*;
 
+/**
+* Class representing a single food object
+* @author Brandon
+*/
+
 public class FoodObject {
 
 // Global variables
