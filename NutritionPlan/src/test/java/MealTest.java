@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package mealplanner;
+
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -21,10 +21,10 @@ public class MealTest {
      */
     @Test
     public void testGetTotalCalories() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
@@ -40,10 +40,10 @@ public class MealTest {
      */
     @Test
     public void testGetMealDate() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
@@ -58,10 +58,10 @@ public class MealTest {
      */
     @Test
     public void testSetMealDate() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
@@ -77,10 +77,10 @@ public class MealTest {
      */
     @Test
     public void testGetDescription() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
@@ -95,10 +95,10 @@ public class MealTest {
      */
     @Test
     public void testSetDescription() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
@@ -113,10 +113,10 @@ public class MealTest {
      */
     @Test
     public void testAddFood() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
@@ -133,10 +133,10 @@ public class MealTest {
      */
     @Test
     public void testRemoveFood() {
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
-        ArrayList<FoodObject> foodList = new ArrayList<>();
+        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
