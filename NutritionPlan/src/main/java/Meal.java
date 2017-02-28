@@ -12,7 +12,7 @@ public class Meal {
     String description;
     ArrayList<FoodObject> foods;
     
-    //constructer
+    //constructor
     public Meal() {
         totalCalories = 0;
         mealDate = null;
@@ -20,7 +20,7 @@ public class Meal {
         foods = null;
     }
     
-    //parameterized constructer
+    //parameterized constructor
     public Meal(ArrayList<FoodObject> items, String des, int totalCal, Date d) {
         totalCalories = totalCal;
         description = des;
