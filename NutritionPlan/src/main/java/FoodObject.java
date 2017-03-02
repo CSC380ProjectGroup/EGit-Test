@@ -17,6 +17,7 @@ public class FoodObject {
 		name = null;
 		type = null;
 		cal = 0;
+		alg = new ArrayList<String>();
 	}
 
 // Parameterized Constructor
