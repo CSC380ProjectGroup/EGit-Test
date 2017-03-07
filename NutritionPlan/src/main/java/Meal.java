@@ -9,21 +9,21 @@ public class Meal {
     //instance variables
     int totalCalories;
     Date mealDate = new Date();
-    String description;
+    String notes;
     ArrayList<FoodObject> foods;
     
     //constructor
     public Meal() {
         totalCalories = 0;
         mealDate = null;
-        description = "";
+        notes = "";
         foods = null;
     }
     
     //parameterized constructor
-    public Meal(ArrayList<FoodObject> items, String des, int totalCal, Date d) {
+    public Meal(ArrayList<FoodObject> items, String n, int totalCal, Date d) {
         totalCalories = totalCal;
-        description = des;
+        notes = n;
         foods = items;
         mealDate = d;
     }
@@ -38,11 +38,11 @@ public class Meal {
     public void setMealDate(Date date) {
         mealDate = date;
     }
-    public String getDescription() {
-        return description;
+    public String getNotes() {
+        return notes;
     }
-    public void setDescription(String description) {
-        this.description = description;
+    public void setNotes(String notes) {
+        this.notes = notes;
     }
     public void addFood(FoodObject food) {
         foods.add(food);

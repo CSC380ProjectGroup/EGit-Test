@@ -66,10 +66,10 @@ public class MealTest {
     }
 
     /**
-     * Test of getDescription method, of class Meal.
+     * Test of getNotes method, of class Meal.
      */
     @Test
-    public void testGetDescription() {
+    public void testGetNotes() {
         ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
@@ -79,15 +79,15 @@ public class MealTest {
         Date d = new Date();
         Meal instance = new Meal(foodList,"apple and banana",180,d);
         String expResult = "apple and banana";
-        String result = instance.getDescription();
+        String result = instance.getNotes();
         assertEquals(expResult, result);
     }
 
     /**
-     * Test of setDescription method, of class Meal.
+     * Test of setNotes method, of class Meal.
      */
     @Test
-    public void testSetDescription() {
+    public void testSetNotes() {
         ArrayList<String> list = new ArrayList<String>();
         FoodObject apple = new FoodObject("apple","fruit",100,list);
         FoodObject banana = new FoodObject("banana","fruit",80,list);
@@ -97,8 +97,8 @@ public class MealTest {
         Date d = new Date();
         Meal instance = new Meal(foodList,"apple and banana",180,d);
         String expResult = "apple and banana";
-        instance.setDescription("test");
-        assertEquals("test", instance.getDescription());
+        instance.setNotes("test");
+        assertEquals("test", instance.getNotes());
     }
 
     /**
