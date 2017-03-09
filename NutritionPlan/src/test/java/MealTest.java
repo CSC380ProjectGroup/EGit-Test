@@ -21,7 +21,7 @@ public class MealTest {
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         int expResult = 180;
         int result = instance.getTotalCalories();
         assertEquals(expResult, result);
@@ -40,7 +40,7 @@ public class MealTest {
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         Date expResult = d;
         Date result = instance.getMealDate();
         assertEquals(expResult, result);
@@ -59,7 +59,7 @@ public class MealTest {
         foodList.add(banana);
         Date d = new Date();
         Date date = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         instance.setMealDate(date);
         Date result = instance.getMealDate();
         assertEquals(date,result);
@@ -77,7 +77,7 @@ public class MealTest {
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         String expResult = "apple and banana";
         String result = instance.getNotes();
         assertEquals(expResult, result);
@@ -95,7 +95,7 @@ public class MealTest {
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         String expResult = "apple and banana";
         instance.setNotes("test");
         assertEquals("test", instance.getNotes());
@@ -113,7 +113,7 @@ public class MealTest {
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         FoodObject pear = new FoodObject("pear","fruit",100,list);
         instance.addFood(pear);
         int expResult = 280;
@@ -133,7 +133,7 @@ public class MealTest {
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
-        Meal instance = new Meal(foodList,"apple and banana",180,d);
+        Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
         instance.removeFood(apple);
         int expResult = 80;
         int result = instance.getTotalCalories();

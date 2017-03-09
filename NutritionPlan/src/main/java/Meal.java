@@ -5,10 +5,12 @@ import java.util.Date;
  *
  * @author Thomas
  */
+
 public class Meal {
     //instance variables
     int totalCalories;
     Date mealDate = new Date();
+    String type;
     String notes;
     ArrayList<FoodObject> foods;
     
@@ -18,14 +20,25 @@ public class Meal {
         mealDate = null;
         notes = "";
         foods = null;
+        type = "";
+    }
+    
+    //constructor for main
+    public Meal(String t){
+    	totalCalories = 0;
+        mealDate = null;
+        notes = "";
+        foods = null;
+    	type = t;
     }
     
     //parameterized constructor
-    public Meal(ArrayList<FoodObject> items, String n, int totalCal, Date d) {
+    public Meal(ArrayList<FoodObject> items, String n, int totalCal, Date d, String t) {
         totalCalories = totalCal;
         notes = n;
         foods = items;
         mealDate = d;
+        type = t;
     }
     
     //methods
@@ -47,8 +60,15 @@ public class Meal {
     public void addFood(FoodObject food) {
         foods.add(food);
         totalCalories = totalCalories + food.getCal();
-    }
-    public void removeFood(FoodObject food) {
+    }    
+    public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public void removeFood(FoodObject food) {
         if (foods.contains(food)) {
             foods.remove(food);
             totalCalories = totalCalories - food.getCal();
