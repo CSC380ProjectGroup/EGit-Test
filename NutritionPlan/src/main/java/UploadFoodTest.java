@@ -31,7 +31,7 @@ public class UploadFoodTest {
         
         FoodObject food4 = DBStuff.getFoodDB("apple"); //food4 should equal food1 except for allergies
         
-        
+        System.out.println("should be FRUIT" + " " + food4.type);
     }
     
 }

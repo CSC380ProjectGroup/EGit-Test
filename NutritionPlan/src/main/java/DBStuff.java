@@ -57,7 +57,7 @@ public class DBStuff {
         boolean status = false;
         String type = "";
         int cal = 0;
-        FoodObject food = null;
+        FoodObject food = new FoodObject();
         try{
             //loading drivers for mysql
             Class.forName("com.mysql.jdbc.Driver");
@@ -123,6 +123,7 @@ public class DBStuff {
                 t = rs.getString("FoodType");
                 c = rs.getInt("Calories");
                 System.out.println(i + ": " + "name->" + n + ", type->" + t + ", calories->" + c);
+                i++;
             }
             
             
