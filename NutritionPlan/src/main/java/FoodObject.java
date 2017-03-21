@@ -11,6 +11,7 @@ public class FoodObject {
 	public String name, type; // name and type of food
 	public int cal; // calories
 	public ArrayList<String> alg; // list of ingredients concerning allergies
+	public int quantity; // quantity of that food object
 
 // Constructor
 	public FoodObject() {
@@ -18,14 +19,16 @@ public class FoodObject {
 		type = null;
 		cal = 0;
 		alg = new ArrayList<String>();
+		quantity = 0;
 	}
 
 // Parameterized Constructor
-	public FoodObject(String n, String t, int c, ArrayList<String> a) {
+	public FoodObject(String n, String t, int c, ArrayList<String> a, int q) {
 		name = n;
 		type = t;
 		cal = c;
 		alg = a;
+		quantity = q;
 	}
 
 // Getters and Setters
@@ -61,7 +64,15 @@ public class FoodObject {
 		this.alg = alg;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
 	
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+		
+	} 
+
 // Methods
 	// check for valid calorie value
 	public boolean checkCal(int x) {
