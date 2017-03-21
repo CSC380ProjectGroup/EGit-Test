@@ -77,7 +77,8 @@ public class SwingGui extends JFrame implements ActionListener {
 		profilePanel.add(profileThreeText, BorderLayout.EAST);
 		profilePanel.add(selectProfile3, BorderLayout.EAST);
 		profilePanel.add(createNewProfile, BorderLayout.SOUTH);
-		
+		//test
+	
 		selectProfile1.addActionListener(this);
 		selectProfile2.addActionListener(this);
 		selectProfile3.addActionListener(this);
