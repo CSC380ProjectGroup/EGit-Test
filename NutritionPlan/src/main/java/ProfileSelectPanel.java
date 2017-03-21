@@ -6,7 +6,7 @@ import java.awt.*;
 /**
  * A specific class to represent the profile selection panel of the GUI.
  * @author DZB
- *
+ * Testing 123
  */
 public class ProfileSelectPanel{
 	private SwingGui parent;
