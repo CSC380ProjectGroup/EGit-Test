@@ -9,7 +9,7 @@ public class FoodObject {
 
 // Global variables
 	public String name, type; // name and type of food
-	public int cal; // calories
+	public int cal; // total calories, based on quantity
 	public ArrayList<String> alg; // list of ingredients concerning allergies
 	public int quantity; // quantity of that food object
 
@@ -69,8 +69,8 @@ public class FoodObject {
 	}
 	
 	public void setQuantity(int quantity) {
+		adjustCal(quantity);
 		this.quantity = quantity;
-		
 	} 
 
 // Methods
@@ -90,9 +90,10 @@ public class FoodObject {
 			return true;
 	}
 
-	// adjust total calories based on amount of servings
+	// adjust total calories based on quantity
 	public void adjustCal(int s) {
-		this.setCal(cal *= s);
+		int temp = s * this.cal;
+		this.setCal(temp / this.quantity);           
 	}
 
 }
