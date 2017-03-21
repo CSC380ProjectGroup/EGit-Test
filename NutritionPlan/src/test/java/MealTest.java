@@ -15,8 +15,8 @@ public class MealTest {
     @Test
     public void testGetTotalCalories() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
@@ -34,8 +34,8 @@ public class MealTest {
     @Test
     public void testGetMealDate() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
@@ -52,8 +52,8 @@ public class MealTest {
     @Test
     public void testSetMealDate() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
@@ -71,8 +71,8 @@ public class MealTest {
     @Test
     public void testGetNotes() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
@@ -89,8 +89,8 @@ public class MealTest {
     @Test
     public void testSetNotes() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
@@ -107,14 +107,14 @@ public class MealTest {
     @Test
     public void testAddFood() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
         Date d = new Date();
         Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
-        FoodObject pear = new FoodObject("pear","fruit",100,list);
+        FoodObject pear = new FoodObject("pear","fruit",100,list,1);
         instance.addFood(pear);
         int expResult = 280;
         int result = instance.getTotalCalories();
@@ -127,8 +127,8 @@ public class MealTest {
     @Test
     public void testRemoveFood() {
         ArrayList<String> list = new ArrayList<String>();
-        FoodObject apple = new FoodObject("apple","fruit",100,list);
-        FoodObject banana = new FoodObject("banana","fruit",80,list);
+        FoodObject apple = new FoodObject("apple","fruit",100,list,1);
+        FoodObject banana = new FoodObject("banana","fruit",80,list,1);
         ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);

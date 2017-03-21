@@ -20,8 +20,8 @@ public class DBStuffTest {
     @Test
     public void testAddFoodDB() {
         ArrayList<String> a = new ArrayList<String>();
-        FoodObject food1 = new FoodObject("apple","fruit",100,a);
-        FoodObject food2 = new FoodObject("salmon","fish",120,a);
+        FoodObject food1 = new FoodObject("apple","fruit",100,a,1);
+        FoodObject food2 = new FoodObject("salmon","fish",120,a,1);
         DBStuff.addFoodDB(food1);
         DBStuff.addFoodDB(food2);
         FoodObject food3 = DBStuff.getFoodDB("apple");
@@ -37,8 +37,8 @@ public class DBStuffTest {
     @Test
     public void testGetFoodDB() {
         ArrayList<String> a = new ArrayList<String>();
-        FoodObject food1 = new FoodObject("apple","fruit",100,a);
-        FoodObject food2 = new FoodObject("salmon","fish",120,a);
+        FoodObject food1 = new FoodObject("apple","fruit",100,a,1);
+        FoodObject food2 = new FoodObject("salmon","fish",120,a,1);
         FoodObject food3 = null;
         DBStuff.addFoodDB(food1);
         DBStuff.addFoodDB(food2);
