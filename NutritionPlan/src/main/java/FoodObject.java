@@ -9,8 +9,9 @@ public class FoodObject {
 
 // Global variables
 	public String name, type; // name and type of food
-	public int cal; // calories
+	public int cal; // total calories, based on quantity
 	public ArrayList<String> alg; // list of ingredients concerning allergies
+	public int quantity; // quantity of that food object
 
 // Constructor
 	public FoodObject() {
@@ -18,14 +19,16 @@ public class FoodObject {
 		type = null;
 		cal = 0;
 		alg = new ArrayList<String>();
+		quantity = 0;
 	}
 
 // Parameterized Constructor
-	public FoodObject(String n, String t, int c, ArrayList<String> a) {
+	public FoodObject(String n, String t, int c, ArrayList<String> a, int q) {
 		name = n;
 		type = t;
 		cal = c;
 		alg = a;
+		quantity = q;
 	}
 
 // Getters and Setters
@@ -61,7 +64,15 @@ public class FoodObject {
 		this.alg = alg;
 	}
 
+	public int getQuantity() {
+		return quantity;
+	}
 	
+	public void setQuantity(int quantity) {
+		adjustCal(quantity);
+		this.quantity = quantity;
+	} 
+
 // Methods
 	// check for valid calorie value
 	public boolean checkCal(int x) {
@@ -79,9 +90,10 @@ public class FoodObject {
 			return true;
 	}
 
-	// adjust total calories based on amount of servings
+	// adjust total calories based on quantity
 	public void adjustCal(int s) {
-		this.setCal(cal *= s);
+		int temp = s * this.cal;
+		this.setCal(temp / this.quantity);           
 	}
 
 }

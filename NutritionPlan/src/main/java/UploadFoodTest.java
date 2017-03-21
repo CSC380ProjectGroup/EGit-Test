@@ -19,9 +19,9 @@ public class UploadFoodTest {
     public static void main(String[] args) {
         //upload food and test output
         ArrayList<String> a = new ArrayList<String>();
-        FoodObject food1 = new FoodObject("apple","fruit",100,a);
-        FoodObject food2 = new FoodObject("salmon","fish",120,a);
-        FoodObject food3 = new FoodObject("angel hair","pasta",180,a);
+        FoodObject food1 = new FoodObject("apple","fruit",100,a,1);
+        FoodObject food2 = new FoodObject("salmon","fish",120,a,1);
+        FoodObject food3 = new FoodObject("angel hair","pasta",180,a,1);
         
         DBStuff.addFoodDB(food1);
         DBStuff.addFoodDB(food2);
