@@ -7,7 +7,7 @@ import java.awt.*;
  * Creates a meal selection panel to choose a meal from. Also allows the Swing Gui
  * to return to profile selection.
  * @author DZB
- *
+ * What's up.
  */
 public class MealSelectPanel {
 	private SwingGui parent;
