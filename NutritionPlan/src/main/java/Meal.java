@@ -91,6 +91,16 @@ public class Meal {
 		return sb.toString();
 	}
 	
+	// return food with a matching name, otherwise return null
+	public FoodObject scanFood(String n){
+		for(FoodObject f : this.foods){
+			if(f.getName().equals(n)){
+				return f;
+			}
+		}
+			//System.out.println("Food object not found, returning null"); //debug
+			return null;
+	}
 	
 	// return a string containing all information for the meal
 	public String toString() {
