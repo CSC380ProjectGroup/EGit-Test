@@ -19,7 +19,7 @@ public class Meal {
         totalCalories = 0;
         mealDate = null;
         notes = "";
-        foods = null;
+        foods = new ArrayList<FoodObject>();
         type = "";
     }
     
@@ -28,7 +28,7 @@ public class Meal {
     	totalCalories = 0;
         mealDate = null;
         notes = "";
-        foods = null;
+        foods =  new ArrayList<FoodObject>();
     	type = t;
     }
     
@@ -77,4 +77,26 @@ public class Meal {
         }
     }
     
+	// return a string that lists all of the food
+	public String giveFood(){
+		StringBuilder sb = new StringBuilder();
+		if(this.foods.isEmpty()){
+			return "None.";
+		}
+		else{
+			for(FoodObject f : this.foods){
+				sb.append("[" + f.getName() + "]" + " ");
+			}
+		}
+		return sb.toString();
+	}
+	
+	
+	// return a string containing all information for the meal
+	public String toString() {
+		return "TYPE: " + getType() +
+				"\nTOTAL CALORIES: " + getTotalCalories() +
+				"\nFOOD: " + giveFood() +
+				"\nNOTES: " + getNotes();
+	}
 }
