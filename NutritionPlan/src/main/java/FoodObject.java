@@ -95,5 +95,22 @@ public class FoodObject {
 		int temp = s * this.cal;
 		this.setCal(temp / this.quantity);           
 	}
+	
+	// return a string that lists all of the food's allergies
+	public String giveAlg(){
+		StringBuilder sb = new StringBuilder();
+		for(String s : this.alg){
+			sb.append("[" + s + "]" + " ");
+		}
+		return sb.toString();
+	}
+	
+	// return string containing all information for the food
+	public String toString(){
+		return "NAME: " + getName() +
+				"\nTYPE: " + getType() +
+				"\nCALORIES: " + getCal() +
+				"\nALLERGIES: " + giveAlg();
+	}
 
 }
