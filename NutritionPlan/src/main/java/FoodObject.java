@@ -69,8 +69,8 @@ public class FoodObject {
 	}
 	
 	public void setQuantity(int quantity) {
-		adjustCal(quantity);
 		this.quantity = quantity;
+		adjustCal(quantity);
 	} 
 
 // Methods
@@ -88,6 +88,11 @@ public class FoodObject {
 			return false;
 		} else
 			return true;
+	}
+	
+	// add an allergy to the list
+	public void addAlg(String s) {
+		this.alg.add(s);
 	}
 
 	// adjust total calories based on quantity
