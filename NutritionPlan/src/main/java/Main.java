@@ -2,6 +2,7 @@ import java.util.*;
 
 public class Main {
 
+	// select one of three test profile objects
 	static void changeProfile(Profile p1, Profile p2, Profile p3) {
 		Scanner s = new Scanner(System.in);
 		for(;;){
@@ -28,6 +29,7 @@ public class Main {
 		}
 	}
 	
+	// select one of four test meal objects for the selected test profile
 	static void viewProfile(Profile p){
 		Scanner s = new Scanner(System.in);
 		for(;;){
@@ -58,24 +60,74 @@ public class Main {
 		}
 	}
 
-	
+	// print the given test meal's information
 	static void viewMeal(Meal m){
 		System.out.println("** Displaying Meal Info **");
 		System.out.println(m.toString());
 		Scanner s = new Scanner(System.in);
 		for(;;){
-			System.out.println("\nEnter 'back' to return to profile");
+			//System.out.println("\nEnter a food name to view that food's info");// option does not work at the moment
+			System.out.println("\nEnter 'add' to add a Food object"); 
+			System.out.println("...or enter 'back' to return to profile");
 			String in = s.nextLine();
 			System.out.println("");
+			
 			if(in.equals("back")) {
 				break;
 			}
+			else if(in.equals("add")){
+				addFood(m);
+				System.out.println("** Displaying Meal Info **");
+				System.out.println(m.toString());
+			}
+			//option does not work at the moment
+//			else if(m.scanFood(in) != null){
+//				m.scanFood(in).toString(); //print toString() of food, if meal has it 
+//			}
 			else {
 				System.out.println("Try again.");
 			}
 		}
 		
 	}
+	
+	//create a new Food object to store into the meal
+	static void addFood(Meal l){
+		Scanner s = new Scanner(System.in);
+
+		FoodObject fo = new FoodObject();
+
+		System.out.print("Enter a food name: ");
+		String in = s.nextLine();
+		fo.setName(in);
+		System.out.print("Enter a food type: ");
+		in = s.nextLine();
+		fo.setType(in);
+		System.out.print("Enter a number of calories per serving: ");
+		in = s.nextLine();
+		fo.setCal(Integer.parseInt(in));
+		System.out.print("Enter a quantity (adjusts calories accordingly): ");
+		in = s.nextLine();
+		fo.setQuantity(Integer.parseInt(in));
+
+		for (;;) {
+			System.out.print("Enter an allergen (or 'stop' to finish): ");
+			in = s.nextLine();
+
+			if (in.equals("stop")) {
+				break;
+			} else {
+				fo.addAlg(in);
+				System.out.println("Allergies: " + fo.giveAlg());
+			}
+		}
+
+		l.addFood(fo);
+		System.out.println("Food object '" + fo.getName() + "' had been added to '" + l.getType() + "'\n");
+		
+	}
+	
+
 	
 	public static void main(String[] args) {
 		
@@ -103,9 +155,9 @@ public class Main {
 		
 	//Launch
 		System.out.println("Nutrition Planner: By Daniel, Thomas, and Brandon");
-	    changeProfile(p1,p2,p3);
-		System.out.println("Exiting program...");
-		
+	    changeProfile(p1,p2,p3); // method finishes when user enters 'exit'
+	    
+		System.out.println("Exiting program..."); 
 		}
 }
 	
