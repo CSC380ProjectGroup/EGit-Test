@@ -3,7 +3,7 @@ import javax.swing.SwingUtilities.*;
 import java.awt.event.*;
 import java.awt.*;
 import java.util.ArrayList; // Not used in this current barebones implementation.
-
+///test
 /**
  * Creates and stores a panel for the displaying of a meal's information
  * in a SwingGui object.
