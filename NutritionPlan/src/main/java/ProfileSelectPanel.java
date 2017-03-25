@@ -19,6 +19,7 @@ public class ProfileSelectPanel{
 	private JTextField profileTwoText;
 	private JTextField profileThreeText;
 	private JTextField profileDisplayMessage;
+	private JPanel displaysPanel;
 	
 	/**
 	 * Creates a profile selection panel using a Swing Gui object as a parent object.
@@ -36,6 +37,7 @@ public class ProfileSelectPanel{
 	private void createPanel(SwingGui p){
 		profilePanel = new JPanel();
 		profilePanel.setLayout(new BorderLayout());
+		displaysPanel = new JPanel(new FlowLayout());
 		selectProfile1 = new JButton("Select this profile.");
 		selectProfile2 = new JButton("Select this profile.");
 		selectProfile3 = new JButton("Select this profile.");
@@ -47,14 +49,15 @@ public class ProfileSelectPanel{
 		profileThreeText = new JTextField("Profile 3.");
 		profileDisplayMessage = new JTextField("Welcome! Please select a profile.");
 		
-		profilePanel.add(profileOneText, BorderLayout.WEST);
-		profilePanel.add(selectProfile1, BorderLayout.WEST);
-		profilePanel.add(profileTwoText, BorderLayout.CENTER);
-		profilePanel.add(selectProfile2, BorderLayout.CENTER);
-		profilePanel.add(profileThreeText, BorderLayout.EAST);
-		profilePanel.add(selectProfile3, BorderLayout.EAST);
+		displaysPanel.add(profileOneText);
+		displaysPanel.add(selectProfile1);
+		displaysPanel.add(profileTwoText);
+		displaysPanel.add(selectProfile2);
+		displaysPanel.add(profileThreeText);
+		displaysPanel.add(selectProfile3);
 		profilePanel.add(profileDisplayMessage, BorderLayout.NORTH);
 		profilePanel.add(createNewProfile, BorderLayout.SOUTH);
+		profilePanel.add(displaysPanel, BorderLayout.CENTER);
 		
 		selectProfile1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -78,6 +81,12 @@ public class ProfileSelectPanel{
 		});
 	}
 	
-	
+	/**
+	 * Returns the panel created by this class.
+	 * @return JPanel
+	 */
+	public JPanel getPanel(){
+		return profilePanel;
+	}
 	
 }

@@ -3,114 +3,90 @@ import javax.swing.SwingUtilities.*;
 import java.awt.event.*;
 import java.awt.*;
 
-public class SwingGui extends JFrame implements ActionListener {
-	
-	// The panels used for the displays.
-	private ProfileSelectPanel profilePanel;
-	private JPanel mealSelectPanel;
-	private JPanel mealDisplayPanel;
-	private JPanel notesDisplay;
-	
-	// Buttons for the profile select panel.
-	private JButton selectProfile1;
-	private JButton selectProfile2;
-	private JButton selectProfile3;
-	private JButton createNewProfile;
-	
-	// Text fields for the profile select panel.
-	private JTextField profileOneText;
-	private JTextField profileTwoText;
-	private JTextField profileThreeText;
-	private JTextField profileDisplayMessage;
-	
-	// Buttons for the meal select panel.
-	private JButton selectBreakfast;
-	private JButton selectLunch;
-	private JButton selectDinner;
-	private JButton selectOther;
-	private JButton backToProfile;
-	
-	// Text fields for the meal select panel. Tentative, not sure how much is needed.
-	private JTextField mealMessage;
-	
-	// Buttons for the Meal Display Panel.
-	private JButton diplayMealDetails;
-	private JButton displayMealNotes;
-	private JButton addFood;
-	
-	// The large JTextField for the list of food names.
-	private JTextField listOfMealFood;
-	
-	//Information storage for the GUI.
+public class SwingGui extends JFrame{
+	private ProfileSelectPanel psp;
+	private MealSelectPanel msp;
+	private MealDisplayPanel mdp;
+	private JPanel profilePanel;
+	private JPanel mealSPanel;
+	private JPanel mealDPanel;
 	private Profile currentProfile;
 	private Meal currentMeal;
+	private CardLayout layout;
+	private JPanel controlPanel;
 	
 	/**
-	 * Creates a basic, empty SwingGui object.
+	 * Creates a basic, empty SwingGui object to work off of and sets the 
+	 * frame to visible.
 	 */
 	public SwingGui(){
+		controlPanel = new JPanel(new CardLayout());
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
-		//Sets the layout of the GUI itself.
-		setLayout(new BorderLayout());
+		psp = new ProfileSelectPanel(this);
+		profilePanel = psp.getPanel();
 		
-		//Creates the panel and buttons for the Profile section of the Gui, and
-		//adds the buttons to the panel.
-		profilePanel = new JPanel();
-		profilePanel.setLayout(new BorderLayout());
+		msp = new MealSelectPanel(this);
+		mealSPanel = msp.getPanel();
 		
-		selectProfile1 = new JButton("Select this profile.");
-		selectProfile2 = new JButton("Select this profile.");
-		selectProfile3 = new JButton("Select this profile.");
-		createNewProfile = new JButton("Create a new profile, or copy a current one.");
+		//Creates a dummy meal to build the meal display panel.
+		currentMeal = new Meal();
+		mdp = new MealDisplayPanel(this, currentMeal);
+		mealDPanel = mdp.getPanel();
 		
-		//Currently, only lists profiles by number. When integrated to database should use names.
-		profileOneText = new JTextField("Profile 1.");
-		profileTwoText = new JTextField("Profile 2.");
-		profileThreeText = new JTextField ("Profile 3.");
-		profileDisplayMessage = new JTextField("Welcome! Please select a profile.");
+		//Creates a dummy profile to work with at first, before the profile is selected.
+		currentProfile = new Profile();
 		
-		profilePanel.add(profileDisplayMessage, BorderLayout.NORTH);
-		profilePanel.add(profileOneText, BorderLayout.WEST);
-		profilePanel.add(selectProfile1, BorderLayout.WEST);
-		profilePanel.add(profileTwoText, BorderLayout.CENTER);
-		profilePanel.add(selectProfile2, BorderLayout.CENTER);
-		profilePanel.add(profileThreeText, BorderLayout.EAST);
-		profilePanel.add(selectProfile3, BorderLayout.EAST);
-		profilePanel.add(createNewProfile, BorderLayout.SOUTH);
-		//Another
-	
-		selectProfile1.addActionListener(this);
-		selectProfile2.addActionListener(this);
-		selectProfile3.addActionListener(this);
-		createNewProfile.addActionListener(this);
+		layout = (CardLayout)(controlPanel.getLayout());
 		
-		//Creates the panel, buttons, and text fields for the Meal Select Panel.
-		mealSelectPanel = new JPanel();
-		mealSelectPanel.setLayout(new BorderLayout());
+		controlPanel.add(profilePanel, "profilePanel");
+		controlPanel.add(mealSPanel, "selectPanel");
+		controlPanel.add(mealDPanel, "displayPanel");
 		
-		selectBreakfast = new JButton("Select Breakfast.");
-		selectLunch = new JButton("Select Lunch.");
-		selectDinner = new JButton("Select Dinner.");
-		selectOther = new JButton("Select Other.");
-		backToProfile = new JButton("Return to profile select.");
+		layout.show(controlPanel, "profilePanel");
+		add(controlPanel, BorderLayout.CENTER);
+		pack();
+		setResizable(true);
+		setVisible(true);
+	}
+
+
+
+	public void selectProfile(int i) {
+		// TODO Change the method so it actually selects a profile properly.
+		//Currently just changes the panels.
+		layout.show(controlPanel, "selectPanel");
+	}
+
+
+
+	public void createAProfile() {
+		// TODO Does absolutely nothing yet. Not implemented, because it will need database links.
 		
-		mealMessage = new JTextField("Please select a meal to view.");
+	}
+
+
+
+	public void selectMeal(int i) {
+		// TODO Make the method actually select the meal to use. Currently, just swaps panels.
 		
-		mealSelectPanel.add(mealMessage, BorderLayout.NORTH);
-		mealSelectPanel.add(selectBreakfast, BorderLayout.CENTER);
-		mealSelectPanel.add(selectLunch, BorderLayout.CENTER);
-		mealSelectPanel.add(selectDinner, BorderLayout.CENTER);
-		mealSelectPanel.add(selectOther, BorderLayout.CENTER);
-		mealSelectPanel.add(backToProfile, BorderLayout.SOUTH);
-		
-		selectBreakfast.addActionListener(this);
-		selectLunch.addActionListener(this);
-		selectDinner.addActionListener(this);
-		selectOther.addActionListener(this);
-		backToProfile.addActionListener(this);
-		
-		//Creates the Meal Display Panel.
-		
+		layout.show(controlPanel, "displayPanel");
+	}
+
+
+	/**
+	 * Displays the profile select panel, returning from the meal select panel.
+	 */
+	public void displayProfileSelect() {
+		layout.show(controlPanel, "profilePanel");
+	}
+
+
+	/**
+	 * Displays the meal select panel, returning from the meal display panel.
+	 */
+	public void returnToMealSelect() {
+		layout.show(controlPanel, "selectPanel");
 	}
 	
 }
