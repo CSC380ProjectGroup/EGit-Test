@@ -1,4 +1,3 @@
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -10,28 +9,8 @@ import static org.junit.Assert.*;
  *
  */
 public class SwingGuiTests {
-	
-	
-	/**
-	 * Tests the selection of a profile.
-	 */
-	@Test
-	public void testProfileSelect(){
-		
+	public static void main(){
+		SwingGui tester = new SwingGui();
 	}
 	
-	/**
-	 * Tests a meal selection.
-	 */
-	@Test
-	public void testMealSelect(){
-		
-	}
-	
-	/**
-	 * Tests a request to look at the current meal's notes.
-	 */
-	public void testCheckNotes(){
-		
-	}
 }

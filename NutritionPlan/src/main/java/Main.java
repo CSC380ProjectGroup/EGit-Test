@@ -141,18 +141,19 @@ public class Main {
 		Meal l = new Meal("Lunch"); 
 		Meal d = new Meal("Dinner");
 		Meal o = new Meal("Other"); 
-		
+
 	//Gives profiles meals
 		p1.addMeal(b); p1.addMeal(l); p1.addMeal(d); p1.addMeal(o);
 		p2.addMeal(b); p2.addMeal(l); p2.addMeal(d); p2.addMeal(o);
 		p3.addMeal(b); p3.addMeal(l); p3.addMeal(d); p3.addMeal(o);
+
 		
     //Food Objects (for testing)
 		ArrayList<String> allerg = new ArrayList<String>();
 		allerg.add("peanut");
 		FoodObject f1 = new FoodObject("Peanut Butter", "snack", 180, allerg, 1);
 		//System.out.println(f1.toString());
-		
+
 	//Launch
 		System.out.println("Nutrition Planner: By Daniel, Thomas, and Brandon");
 	    changeProfile(p1,p2,p3); // method finishes when user enters 'exit'

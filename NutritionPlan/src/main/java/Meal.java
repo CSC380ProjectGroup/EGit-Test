@@ -76,6 +76,10 @@ public class Meal {
             System.out.println("Not part of meal");
         }
     }
+	
+	public ArrayList<FoodObject> getListOfFood(){
+		return foods;
+	}
     
 	// return a string that lists all of the food
 	public String giveFood(){
