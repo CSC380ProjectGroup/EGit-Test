@@ -56,4 +56,18 @@ public class Profile {
 	public boolean areMealsEmpty(){
 		return listOfMeals.isEmpty();
 	}
+	
+	/**
+	 * Access a particular meal from the list
+	 * @return Meal
+	 */
+	public Meal getMeal(String s){
+		for(Meal m : this.listOfMeals){
+			if(m.getType().equals(s)){
+				return m;
+			}
+		}
+		System.out.println("Could not find meal, returning a null");
+		return null;
+	}
 }
