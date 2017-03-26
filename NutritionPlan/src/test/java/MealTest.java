@@ -96,7 +96,6 @@ public class MealTest {
         foodList.add(banana);
         Date d = new Date();
         Meal instance = new Meal(foodList,"apple and banana",180,d,"Other");
-        String expResult = "apple and banana";
         instance.setNotes("test");
         assertEquals("test", instance.getNotes());
     }
