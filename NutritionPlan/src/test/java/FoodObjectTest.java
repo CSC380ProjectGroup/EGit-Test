@@ -47,8 +47,4 @@ public class FoodObjectTest {
 		assertEquals(250, food2.getCal());
 	}
 	
-	/**
-	 * TODO: missing jUnit tests for some newer FoodObject methods
-	 */
-	
 }

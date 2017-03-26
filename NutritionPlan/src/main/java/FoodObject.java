@@ -75,13 +75,13 @@ public class FoodObject {
 
 // Methods
 	
-	// adjust total calories based on quantity
+	// Adjust total calories based on quantity
 	public void adjustCal(int s) {
 		int temp = s * this.cal;
 		this.setCal(temp / this.quantity);           
 	}
 	
-	// check for valid calorie value
+	// Check for valid calorie value
 	public boolean checkCal(int x) {
 		if (x < 0)
 			return false;
@@ -89,7 +89,7 @@ public class FoodObject {
 			return true;
 	}
 
-	// check if food contains allergies
+	// Check if food contains allergies
 	public boolean checkAlg() {
 		if (this.alg.isEmpty()) {
 			return false;
@@ -97,13 +97,13 @@ public class FoodObject {
 			return true;
 	}
 	
-	// add an allergy to the list
+	// Add an allergy to the list
 	public void addAlg(String s) {
 		this.alg.add(s);
 	}
 
 
-	// return a string that lists all of the food's allergies
+	// Return a string that lists all of the food's allergies
 	public String giveAlg(){
 		StringBuilder sb = new StringBuilder();
 		if(this.getAlg().isEmpty()){
@@ -117,7 +117,7 @@ public class FoodObject {
 		return sb.toString();
 	}
 	
-	// return string containing all information for the food
+	// Return string containing all information for the food
 	public String toString(){
 		return "NAME: " + getName() +
 				"\nTYPE: " + getType() +
