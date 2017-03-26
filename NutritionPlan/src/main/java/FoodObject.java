@@ -19,7 +19,7 @@ public class FoodObject {
 		type = null;
 		cal = 0;
 		alg = new ArrayList<String>();
-		quantity = 0;
+		quantity = 1; //quantity should never be zero. this breaks adjustCal(), and there's no reason for it to be zero any way
 	}
 
 // Parameterized Constructor
@@ -69,11 +69,18 @@ public class FoodObject {
 	}
 	
 	public void setQuantity(int quantity) {
+		this.adjustCal(quantity);
 		this.quantity = quantity;
-		adjustCal(quantity);
 	} 
 
 // Methods
+	
+	// adjust total calories based on quantity
+	public void adjustCal(int s) {
+		int temp = s * this.cal;
+		this.setCal(temp / this.quantity);           
+	}
+	
 	// check for valid calorie value
 	public boolean checkCal(int x) {
 		if (x < 0)
@@ -95,17 +102,17 @@ public class FoodObject {
 		this.alg.add(s);
 	}
 
-	// adjust total calories based on quantity
-	public void adjustCal(int s) {
-		int temp = s * this.cal;
-		this.setCal(temp / this.quantity);           
-	}
-	
+
 	// return a string that lists all of the food's allergies
 	public String giveAlg(){
 		StringBuilder sb = new StringBuilder();
-		for(String s : this.alg){
-			sb.append("[" + s + "]" + " ");
+		if(this.getAlg().isEmpty()){
+			return "None.";
+		}
+		else{
+			for(String s : this.alg){
+				sb.append("[" + s + "]" + " ");
+			}
 		}
 		return sb.toString();
 	}
@@ -115,6 +122,7 @@ public class FoodObject {
 		return "NAME: " + getName() +
 				"\nTYPE: " + getType() +
 				"\nCALORIES: " + getCal() +
+				"\nQUANTITY: " + getQuantity() +
 				"\nALLERGIES: " + giveAlg();
 	}
 

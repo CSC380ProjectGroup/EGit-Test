@@ -38,13 +38,17 @@ public class FoodObjectTest {
 		allerg.add("peanut");
 		FoodObject food = new FoodObject("Peanut Butter", "snack", 180, allerg, 1);
 		FoodObject food2 = new FoodObject("Apple", "fruit", 125, new ArrayList<String>(), 1);
-		food.adjustCal(3);
-		food2.adjustCal(2);
-		//food.setQuantity(3);  //setQuantity() runs the adjustCal() method
-		//food2.setQuantity(2); //(setting quantity and running adjustCal() do essentially the same thing)
+//		food.adjustCal(3);
+//		food2.adjustCal(2);
+		food.setQuantity(3);  //setQuantity() runs the adjustCal() method
+		food2.setQuantity(2); //(setting quantity and running adjustCal() do essentially the same thing)
 		
 		assertEquals(540, food.getCal());
 		assertEquals(250, food2.getCal());
 	}
+	
+	/**
+	 * TODO: missing jUnit tests for some newer FoodObject methods
+	 */
 	
 }
