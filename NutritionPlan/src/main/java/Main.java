@@ -37,7 +37,6 @@ public class Main {
 				viewProfile(p3);
 			}
 			else if(in.equals("exit")){
-				s.close();
 				break;
 			}
 			else{
@@ -69,7 +68,6 @@ public class Main {
 				viewMeal(p.getMeal("Other"));
 			}
 			else if(in.equals("back")){
-				s.close();
 				break;
 			}
 			else{
@@ -93,7 +91,6 @@ public class Main {
 			System.out.println("");
 			
 			if(in.equals("back")) {
-				s.close();
 				break;
 			}
 			else if(in.equals("add")){
@@ -109,10 +106,9 @@ public class Main {
 				System.out.println(m.scanFood(in).toString() + "\n"); //print toString() of food, if meal has it 
 			}
 			else {
-				System.out.println("Try again.");
+				System.out.println("Invalid Command: " + in);
 			}
 		}
-		
 	}
 	
 	// Create a new Food object to store into the meal
@@ -157,7 +153,6 @@ public class Main {
 
 		l.addFood(fo);
 		System.out.println("Food object '" + fo.getName() + "' had been added to '" + l.getType() + "'\n");
-		s.close();
 	}
 	
 	public static void main(String[] args) {
@@ -187,7 +182,6 @@ public class Main {
 	/**
 	 * Run GUI
 	 */
-//		SwingGui test = new SwingGui();
-		
+		SwingGui test = new SwingGui();
 		}
 }
