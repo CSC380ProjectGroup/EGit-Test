@@ -16,7 +16,6 @@ public class Main {
 	
 /**
  * Text-based interface 
- * TODO: Figure out how to close the scanners without breaking the interface
  */
 	
 	// Select one of three test profile objects
@@ -148,7 +147,7 @@ public class Main {
 				break;
 			} else {
 				fo.addAlg(in);
-				System.out.println("\nAllergies: " + fo.giveAlg());
+				System.out.println("\nAllergies: " + fo.printAlg());
 			}
 		}
 
