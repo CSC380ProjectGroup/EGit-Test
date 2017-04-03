@@ -27,13 +27,13 @@ public class MealTest {
      */
     @Test
     public void testGetTotalCalories() {
-        ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
         foodList.add(apple);
         foodList.add(banana);
 //        Date d = new Date();
         int expResult = 180;
         int result = instance.getTotalCalories();
         assertEquals(expResult, result);
+        foodList.clear();
     }
 
     /**
@@ -76,6 +76,7 @@ public class MealTest {
         String expResult = "apple and banana";
         String result = instance.getNotes();
         assertEquals(expResult, result);
+        foodList.clear();
     }
 
     /**
@@ -103,6 +104,7 @@ public class MealTest {
         int expResult = 280;
         int result = instance.getTotalCalories();
         assertEquals(expResult,result);
+        foodList.clear();
     }
 
     /**
@@ -117,6 +119,32 @@ public class MealTest {
         int expResult = 80;
         int result = instance.getTotalCalories();
         assertEquals(expResult,result);
+        
+    }
+    
+    
+    /**
+     * Test of giveFood method, of class Meal.
+     */
+    @Test
+    public void testGiveFood() {
+        foodList.add(apple);
+        foodList.add(banana);
+        assertEquals(instance.giveFood(), "[apple] [banana] ");
+        foodList.clear();
+    }
+    
+    /**
+     * Test of scanFood method, of class Meal.
+     */
+    @Test
+    public void testScanFood() {
+    	foodList.add(apple);
+    	assertEquals(null, instance.scanFood("banana"));
+    	assertEquals(apple, instance.scanFood("apple"));
+    	foodList.add(banana);
+    	assertEquals(banana, instance.scanFood("banana"));
+    	foodList.clear();
     }
     
 }
