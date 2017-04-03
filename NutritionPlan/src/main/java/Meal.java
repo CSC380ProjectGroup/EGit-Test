@@ -7,50 +7,56 @@ import java.util.Date;
  */
 
 public class Meal {
-    //instance variables
+	
+//instance variables
     int totalCalories;
-    Date mealDate = new Date();
+    //Date mealDate = new Date();
     String type;
     String notes;
     ArrayList<FoodObject> foods;
     
-    //constructor
+//Constructors
+    //Default
     public Meal() {
         totalCalories = 0;
-        mealDate = null;
+        //mealDate = null;
         notes = "";
         foods = new ArrayList<FoodObject>();
         type = "";
     }
     
-    //constructor for main
+    //For Main
     public Meal(String t){
     	totalCalories = 0;
-        mealDate = null;
         notes = "";
         foods =  new ArrayList<FoodObject>();
     	type = t;
     }
     
-    //parameterized constructor
-    public Meal(ArrayList<FoodObject> items, String n, int totalCal, Date d, String t) {
+    //Parameterized Constructor
+    public Meal(ArrayList<FoodObject> items, String n, int totalCal, String t) {
         totalCalories = totalCal;
         notes = n;
         foods = items;
-        mealDate = d;
+        //mealDate = d;
         type = t;
     }
     
-    //methods
+// Getters and Setters
     public int getTotalCalories() {
         return totalCalories;
     }
-    public Date getMealDate() {
-        return mealDate;
+    public void setTotalCalories(int c) {
+        totalCalories = c;
     }
-    public void setMealDate(Date date) {
-        mealDate = date;
-    }
+    
+	// public Date getMealDate() {
+	// return mealDate;
+	// }
+	// public void setMealDate(Date date) {
+	// mealDate = date;
+	// }
+    
     public String getNotes() {
         return notes;
     }
@@ -68,6 +74,7 @@ public class Meal {
 		this.type = type;
 	}
 
+// Methods
 	public void removeFood(FoodObject food) {
         if (foods.contains(food)) {
             foods.remove(food);
@@ -102,7 +109,7 @@ public class Meal {
 				return f;
 			}
 		}
-			//System.out.println("Food object not found, returning null"); //debug
+			System.out.println("DEBUG: Food object not found, returning null");
 			return null;
 	}
 	
