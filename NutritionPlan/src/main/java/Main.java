@@ -15,7 +15,8 @@ public class Main {
 	}
 	
 /**
- * Text-based interface, for testing
+ * Text-based interface 
+ * TODO: Figure out how to close the scanners without breaking the interface
  */
 	
 	// Select one of three test profile objects
@@ -183,5 +184,6 @@ public class Main {
 	 * Run GUI
 	 */
 		SwingGui test = new SwingGui();
+		
 		}
 }
