@@ -42,6 +42,13 @@ public class Profile {
 	}
 	
 	/**
+	 * Return the Array List of Meals
+	 */
+	public ArrayList<Meal> getListOfMeals() {
+		return listOfMeals;
+	}
+	
+	/**
 	 * Adds a meal object to the list of meals.
 	 * @param Meal The meal to add to the list.
 	 */
