@@ -89,7 +89,7 @@ public class FoodObject {
 			return true;
 	}
 
-	// Check if food contains allergies
+	// Check if food contains any allergies
 	public boolean checkAlg() {
 		if (this.alg.isEmpty()) {
 			return false;
@@ -97,14 +97,23 @@ public class FoodObject {
 			return true;
 	}
 	
+	//Check if food contains a particular allergy
+		public Boolean findAlg(String s){
+			for(String a : this.alg){
+				if(a.equals(s)){
+					return true;
+				}
+			}
+			return false;
+		}
+	
 	// Add an allergy to the list
 	public void addAlg(String s) {
 		this.alg.add(s);
 	}
 
-
 	// Return a string that lists all of the food's allergies
-	public String giveAlg(){
+	public String printAlg(){
 		StringBuilder sb = new StringBuilder();
 		if(this.getAlg().isEmpty()){
 			return "None.";
@@ -117,13 +126,14 @@ public class FoodObject {
 		return sb.toString();
 	}
 	
+	
 	// Return string containing all information for the food
 	public String toString(){
 		return "NAME: " + getName() +
 				"\nTYPE: " + getType() +
 				"\nCALORIES: " + getCal() +
 				"\nQUANTITY: " + getQuantity() +
-				"\nALLERGIES: " + giveAlg();
+				"\nALLERGIES: " + printAlg();
 	}
 
 }
