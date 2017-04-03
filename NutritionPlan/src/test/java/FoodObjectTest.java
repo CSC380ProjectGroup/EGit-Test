@@ -45,4 +45,15 @@ public class FoodObjectTest {
 		allerg.clear();
 	}
 	
+	@Test
+	public void addAlgTest(){
+		
+	}
+	
+	@Test
+	public void giveAlgTest(){
+		
+	}
+	
+
 }

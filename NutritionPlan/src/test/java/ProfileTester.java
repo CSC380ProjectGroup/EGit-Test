@@ -7,12 +7,16 @@ import static org.junit.Assert.*;
  */
 public class ProfileTester {
 	
+// Test Objects
+	Profile tester = new Profile(); //Test Profile
+	Meal testerMeal = new Meal(); //Test Meal
+	
+// Test Methods
 	/**
 	 * Creates a new Profile and tests to see if the meals begin empty.
 	 */
 	@Test
 	public void testMealsAreEmpty(){
-		Profile tester = new Profile();
 		assertTrue(tester.areMealsEmpty()); 
 	}
 	
@@ -22,8 +26,6 @@ public class ProfileTester {
 	 */
 	@Test
 	public void testMealsArentEmpty(){
-		Profile tester = new Profile();
-		Meal testerMeal = new Meal();
 		tester.addMeal(testerMeal);
 		assertFalse(tester.areMealsEmpty());
 	}
