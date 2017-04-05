@@ -8,9 +8,11 @@ public class SwingGui extends JFrame{
 	private ProfileSelectPanel psp;
 	private MealSelectPanel msp;
 	private MealDisplayPanel mdp;
+	private MessageDisplayPanel msgdp;
 	private JPanel profilePanel;
 	private JPanel mealSPanel;
 	private JPanel mealDPanel;
+	private JPanel messageDPanel;
 	private Profile currentProfile;
 	private Meal currentMeal;
 	private CardLayout layout;
@@ -30,6 +32,9 @@ public class SwingGui extends JFrame{
 		msp = new MealSelectPanel(this);
 		mealSPanel = msp.getPanel();
 		
+		msgdp = new MessageDisplayPanel(this);
+		messageDPanel = msgdp.getPanel();
+		
 		//Creates a dummy meal to build the meal display panel.
 		currentMeal = new Meal();
 		mdp = new MealDisplayPanel(this, currentMeal);
@@ -43,6 +48,7 @@ public class SwingGui extends JFrame{
 		controlPanel.add(profilePanel, "profilePanel");
 		controlPanel.add(mealSPanel, "selectPanel");
 		controlPanel.add(mealDPanel, "displayPanel");
+		controlPanel.add(messageDPanel, "messagePanel");
 		
 		layout.show(controlPanel, "profilePanel");
 		add(controlPanel, BorderLayout.CENTER);
@@ -88,6 +94,34 @@ public class SwingGui extends JFrame{
 	 */
 	public void returnToMealSelect() {
 		layout.show(controlPanel, "selectPanel");
+	}
+
+
+
+	public void returnToMealDisplay() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	/**
+	 * Displays the current meal.
+	 */
+	public void displayMeal(){
+		layout.show(controlPanel, "displayPanel");
+	}
+
+
+
+	public void searchFood(String text) {
+		// TODO Does nothing except for switches the panels. Needs to be made to work.
+		
+	}
+
+
+
+	public void addFood(String text, String text2, String text3) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
