@@ -9,10 +9,16 @@ public class SwingGui extends JFrame{
 	private MealSelectPanel msp;
 	private MealDisplayPanel mdp;
 	private MessageDisplayPanel msgdp;
+	private FoodPanel fp;
+	private NotesPanel np;
+	private CreateProfilePanel cpp;
 	private JPanel profilePanel;
 	private JPanel mealSPanel;
 	private JPanel mealDPanel;
 	private JPanel messageDPanel;
+	private JPanel foodPanel;
+	private JPanel notesPanel;
+	private JPanel createPPanel;
 	private Profile currentProfile;
 	private Meal currentMeal;
 	private CardLayout layout;
@@ -34,6 +40,15 @@ public class SwingGui extends JFrame{
 		
 		msgdp = new MessageDisplayPanel(this);
 		messageDPanel = msgdp.getPanel();
+		
+		fp = new FoodPanel(this);
+		foodPanel = fp.getPanel();
+		
+		np = new NotesPanel(this);
+		notesPanel = np.getPanel();
+		
+		cpp = new CreateProfilePanel(this);
+		createPPanel = cpp.getPanel();
 		
 		//Creates a dummy meal to build the meal display panel.
 		currentMeal = new Meal();
