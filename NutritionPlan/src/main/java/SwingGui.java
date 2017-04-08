@@ -64,6 +64,9 @@ public class SwingGui extends JFrame{
 		controlPanel.add(mealSPanel, "selectPanel");
 		controlPanel.add(mealDPanel, "displayPanel");
 		controlPanel.add(messageDPanel, "messagePanel");
+		controlPanel.add(foodPanel, "foodPanel");
+		controlPanel.add(notesPanel, "notesPanel");
+		controlPanel.add(createPPanel, "createPanel");
 		
 		layout.show(controlPanel, "profilePanel");
 		add(controlPanel, BorderLayout.CENTER);
@@ -114,8 +117,7 @@ public class SwingGui extends JFrame{
 
 
 	public void returnToMealDisplay() {
-		// TODO Auto-generated method stub
-		
+		layout.show(controlPanel, "displayPanel");
 	}
 	
 	/**
@@ -128,15 +130,37 @@ public class SwingGui extends JFrame{
 
 
 	public void searchFood(String text) {
-		// TODO Does nothing except for switches the panels. Needs to be made to work.
+		//Does nothing. Absolutely nothing right now. 
 		
 	}
 
 
-
+	/**
+	 * Should add a food to the database, based on the input strings.
+	 * @param text
+	 * @param text2
+	 * @param text3
+	 */
 	public void addFood(String text, String text2, String text3) {
-		// TODO Auto-generated method stub
-		
+		// Does ABSOLUTELY nothing right now, besides updating and displaying the message panel.
+		msgdp.setMessage(0);
+		layout.show(controlPanel, "messagePanel");
 	}
 	
+	/**
+	 * Shows the notes panel for the current meal.
+	 */
+	public void displayNotesPanel(){
+		layout.show(controlPanel, "notesPanel");
+	}
+	
+	/**
+	 * Stores the note from the notes panel into the current meal.
+	 * @param String The text to store.
+	 */
+	public void storeMessage(String str){
+		//Does not store the message yet. Will store it soon.
+		msgdp.setMessage(1);
+		layout.show(controlPanel, "messagePanel");
+	}
 }

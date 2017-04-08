@@ -184,5 +184,5 @@ public class Main {
 	 */
 		SwingGui test = new SwingGui();
 		
-		}
+	}
 }

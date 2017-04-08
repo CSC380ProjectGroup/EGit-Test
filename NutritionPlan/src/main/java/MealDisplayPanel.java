@@ -69,6 +69,12 @@ public class MealDisplayPanel {
 				parent.returnToMealSelect();
 			}
 		});
+		
+		displayNotes.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.displayNotesPanel();
+			}
+		});
 	}
 	
 	/**
@@ -78,4 +84,8 @@ public class MealDisplayPanel {
 	public JPanel getPanel(){
 		return mealDisplayPanel;
 	}
+	
+	/**
+	 * Stores the input note for the notes panel.
+	 */
 }
