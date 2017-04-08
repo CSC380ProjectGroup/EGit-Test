@@ -18,6 +18,8 @@ public class MealDisplayPanel {
 	private Meal currentMeal;
 	private JButton displayNotes;
 	private JButton returnToMealSelect;
+	private JButton searchFood;
+	private JButton addFood;
 	private SwingGui parent;
 	private JPanel buttonsPanel;
 	private JPanel textPanel;
@@ -53,7 +55,9 @@ public class MealDisplayPanel {
 		foodList = new JTextField("This is where the list of food should go.");
 		allergensList = new JTextField("This is where the allergens list should go.");
 		totalCals = new JTextField("This is where the list of calories should go.");
-		displayNotes = new JButton("Display Notes. Not functional at the moment.");
+		displayNotes = new JButton("Display Notes");
+		searchFood = new JButton("Search Food");
+		addFood = new JButton("Add Food");
 		returnToMealSelect = new JButton("Back.");
 		
 		mealDisplayPanel.add(textPanel, BorderLayout.CENTER);
@@ -63,6 +67,8 @@ public class MealDisplayPanel {
 		textPanel.add(foodList);
 		buttonsPanel.add(displayNotes);
 		buttonsPanel.add(returnToMealSelect);
+		buttonsPanel.add(searchFood);
+		buttonsPanel.add(addFood);
 		
 		returnToMealSelect.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -70,6 +76,17 @@ public class MealDisplayPanel {
 			}
 		});
 		
+		searchFood.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.selectFoodPanel(1);
+			}
+		});
+		
+		addFood.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.selectFoodPanel(2);
+			}
+		});
 		displayNotes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				parent.displayNotesPanel();

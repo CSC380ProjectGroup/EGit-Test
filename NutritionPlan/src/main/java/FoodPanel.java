@@ -20,7 +20,8 @@ public class FoodPanel {
 	private JTextField calories;
 	private JTextField allergens;
 	private JTextField infoMessage;
-	private JButton returnToMeal;
+	private JButton returnToMeal1;
+	private JButton returnToMeal2;
 	private JButton searchForFood;
 	private JButton addFood;
 	private CardLayout layout;
@@ -53,14 +54,15 @@ public class FoodPanel {
 		calories = new JTextField("Calories");
 		allergens = new JTextField("Allergens");
 		
-		returnToMeal = new JButton("Back");
+		returnToMeal1 = new JButton("Back");
+		returnToMeal2 = new JButton("Back");
 		searchForFood = new JButton("Search");
 		addFood = new JButton("Add Food");
 		
-		addFoodButtons.add(returnToMeal);
+		addFoodButtons.add(returnToMeal1);
 		addFoodButtons.add(addFood);
 		
-		displayFoodButtons.add(returnToMeal);
+		displayFoodButtons.add(returnToMeal2);
 		displayFoodButtons.add(searchForFood);
 		
 		buttonsControlPanel.add(addFoodButtons, "addFood");
@@ -74,7 +76,12 @@ public class FoodPanel {
 		foodPanel.add(infoPanel, BorderLayout.CENTER);
 		foodPanel.add(buttonsControlPanel, BorderLayout.SOUTH);
 		
-		returnToMeal.addActionListener(new ActionListener(){
+		returnToMeal1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.displayMeal();
+			}
+		});
+		returnToMeal2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				parent.displayMeal();
 			}

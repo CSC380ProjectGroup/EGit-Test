@@ -86,8 +86,8 @@ public class SwingGui extends JFrame{
 
 
 	public void createAProfile() {
-		// TODO Does absolutely nothing yet. Not implemented, because it will need database links.
-		
+		// Currently just displays the create a profile panel.
+		layout.show(controlPanel, "createPanel");
 	}
 
 
@@ -162,5 +162,14 @@ public class SwingGui extends JFrame{
 		//Does not store the message yet. Will store it soon.
 		msgdp.setMessage(1);
 		layout.show(controlPanel, "messagePanel");
+	}
+	
+	/**
+	 * Prepares the foodPanel for either a search or an add for food.
+	 * @param int The control int for the class.
+	 */
+	public void selectFoodPanel(int i){
+		fp.setPanelView(i);
+		layout.show(controlPanel, "foodPanel");
 	}
 }
