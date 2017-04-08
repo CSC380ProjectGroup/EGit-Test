@@ -8,10 +8,10 @@ import java.util.*;
 public class FoodObject {
 
 // Global variables
-	public String name, type; // name and type of food
-	public int cal; // total calories, based on quantity
-	public ArrayList<String> alg; // list of ingredients concerning allergies
-	public int quantity; // quantity of that food object
+	private String name, type; // name and type of food
+	private int cal; // total calories, based on quantity
+	private ArrayList<String> alg; // list of ingredients concerning allergies
+	private int quantity; // quantity of that food object
 
 // Constructor
 	public FoodObject() {
@@ -98,7 +98,7 @@ public class FoodObject {
 	}
 	
 	//Check if food contains a particular allergy
-		public Boolean findAlg(String s){
+		public boolean findAlg(String s){
 			for(String a : this.alg){
 				if(a.equals(s)){
 					return true;

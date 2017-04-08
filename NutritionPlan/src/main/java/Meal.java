@@ -9,10 +9,10 @@ import java.util.Date;
 public class Meal {
 	
 //instance variables
-    int totalCalories;
+    private int totalCalories;
     //Date mealDate = new Date();
-    String type;
-    String notes;
+    private String type;
+    private String notes;
     ArrayList<FoodObject> foods;
     
 //Constructors
