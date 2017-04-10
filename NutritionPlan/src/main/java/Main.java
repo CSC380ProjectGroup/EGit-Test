@@ -1,5 +1,10 @@
 import java.util.*;
 
+/**
+* A "Main" class containing a text-based testing interface. Runs a SwingGui object.
+* @author Brandon
+*/
+
 public class Main {
 
 	// Check if a given input is an integer
@@ -179,9 +184,9 @@ public class Main {
 		p3.addMeal(b); p3.addMeal(l); p3.addMeal(d); p3.addMeal(o);
 
 	//Launch
-		System.out.println("Nutrition Planner: By Daniel, Thomas, and Brandon");
-	    changeProfile(p1,p2,p3); // method (AKA text interface) finishes when user enters 'exit'
-		System.out.println("Exiting program..."); 
+//		System.out.println("Nutrition Planner: By Daniel, Thomas, and Brandon");
+//	    changeProfile(p1,p2,p3); // method (AKA text interface) finishes when user enters 'exit'
+//		System.out.println("Exiting program..."); 
 		
 	/**
 	 * Run GUI

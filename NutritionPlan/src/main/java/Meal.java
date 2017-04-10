@@ -8,15 +8,15 @@ import java.util.Date;
 
 public class Meal {
 	
-//instance variables
+// instance variables
     private int totalCalories;
     //Date mealDate = new Date();
     private String type;
     private String notes;
     ArrayList<FoodObject> foods;
     
-//Constructors
-    //Default
+// Constructors
+    // Default Constructor
     public Meal() {
         totalCalories = 0;
         //mealDate = null;
@@ -25,7 +25,7 @@ public class Meal {
         type = "";
     }
     
-    //For Main
+    // Constructor for establishing meal type only (used in Main)
     public Meal(String t){
     	totalCalories = 0;
         notes = "";
@@ -33,7 +33,7 @@ public class Meal {
     	type = t;
     }
     
-    //Parameterized Constructor
+    // Parameterized Constructor
     public Meal(ArrayList<FoodObject> items, String n, int totalCal, String t) {
         totalCalories = totalCal;
         notes = n;
@@ -75,6 +75,8 @@ public class Meal {
 	}
 
 // Methods
+	
+	// remove a food object from the list
 	public void removeFood(FoodObject food) {
         if (foods.contains(food)) {
             foods.remove(food);
@@ -84,11 +86,12 @@ public class Meal {
         }
     }
 	
+	// return list of all foods in the meal
 	public ArrayList<FoodObject> getListOfFood(){
 		return foods;
 	}
     
-	// return a string that lists all of the food
+	// return a string listing all of the foodobjects in the meal
 	public String giveFood(){
 		StringBuilder sb = new StringBuilder();
 		if(this.foods.isEmpty()){
@@ -102,7 +105,7 @@ public class Meal {
 		return sb.toString();
 	}
 	
-	// return food with a matching name, otherwise return null
+	// return a food in the meal with a matching name, otherwise return null
 	public FoodObject scanFood(String n){
 		for(FoodObject f : this.foods){
 			if(f.getName().equals(n)){
@@ -115,9 +118,7 @@ public class Meal {
 	
 	// return a string containing all information for the meal
 	public String toString() {
-		return "TYPE: " + getType() +
-				"\nTOTAL CALORIES: " + getTotalCalories() +
-				"\nFOOD: " + giveFood() +
-				"\nNOTES: " + getNotes();
+		return "TYPE: " + getType() + "\nTOTAL CALORIES: " + getTotalCalories() + "\nFOOD: " + giveFood() + "\nNOTES: "
+				+ getNotes();
 	}
 }

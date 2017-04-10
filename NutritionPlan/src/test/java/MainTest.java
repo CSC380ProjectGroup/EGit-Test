@@ -12,15 +12,16 @@ public class MainTest {
 /**
  * Test Objects
  */
-	//Meal Objects
-			ArrayList<FoodObject> foods = new ArrayList<FoodObject>();
-			Meal b = new Meal("Breakfast");
-			Meal l = new Meal("Lunch");
-			Meal d = new Meal("Dinner");
-			Meal o = new Meal("Other"); 
-	//FoodObject
-			ArrayList<String> allerg = new ArrayList<String>();
-			FoodObject food = new FoodObject("Peanut Butter", "snack", 180, allerg, 1);
+	// Meal Objects
+	ArrayList<FoodObject> foods = new ArrayList<FoodObject>();
+	Meal b = new Meal("Breakfast");
+	Meal l = new Meal("Lunch");
+	Meal d = new Meal("Dinner");
+	Meal o = new Meal("Other");
+	
+	// FoodObject
+	ArrayList<String> allerg = new ArrayList<String>();
+	FoodObject food = new FoodObject("Peanut Butter", "snack", 180, allerg, 1);
 			
 /**
  * Test Methods
@@ -29,13 +30,12 @@ public class MainTest {
 	// give access to the methods below and don't actually modify anything
 			
 	@Test
-	public void viewMealTest(){
-	// Test Meal	
+	public void viewMealTest() {
 		foods.add(food);
 		Meal lTest = new Meal(foods, "test note", 180, "Breakfast");
 		
-		Main.viewMeal(b);  // Test method	
-
+		Main.viewMeal(b);  
+		
 	// test is positive assuming user-defined Meal note = test Meal note
 		assertEquals(b.getNotes(), lTest.getNotes());
 	// test is positive assuming user-defined Meal info = test Meal info
@@ -43,12 +43,11 @@ public class MainTest {
 	}
 	
 	@Test
-	public void addFoodTest(){
-	//Test Food
+	public void addFoodTest() {
 		allerg.add("peanut");
 		b.addFood(food);
 		
-		Main.addFood(o); // Test Method
+		Main.addFood(o);
 		
 	// test is positive assuming user-defined food = food test object
 		assertEquals(b.scanFood("Peanut Butter").toString(), o.scanFood("Peanut Butter").toString());

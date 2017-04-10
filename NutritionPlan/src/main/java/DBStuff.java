@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,7 +23,7 @@ public class DBStuff {
         Class.forName("com.mysql.jdbc.Driver");
 
         //create string of sql query
-        String query = "INSERT INTO Foods" + "(FoodName,FoodType,Calories,Quantity) VALUES" + "(?,?,?,?)";
+		String query = "INSERT INTO Foods" + "(FoodName,FoodType,Calories,Quantity) VALUES" + "(?,?,?,?)";
 
         //connect to database
         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB", "root", "1356999g");
@@ -54,8 +48,7 @@ public class DBStuff {
                     + "(IngName, FoodName) VALUES" + "(?,?)";
 
             //connect to database
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB",
-                    "root", "1356999g");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB", "root", "1356999g");
 
             //prepare Statement for SQL Query
             ps = con.prepareStatement(query);
@@ -143,8 +136,7 @@ public class DBStuff {
         String query = "SELECT * FROM FoodAlgs WHERE FoodName = ?";
 
         //connect to database
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB",
-                "root", "1356999g");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB", "root", "1356999g");
 
         //prepare Statement for SQL Query
         ps = con.prepareStatement(query);
@@ -177,8 +169,7 @@ public class DBStuff {
         String query = "UPDATE Foods SET Calories = ?, FoodType = ?, Quantity = ? WHERE FoodName = ?";
 
         //connect to database
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB",
-                "root", "1356999g");
+		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB", "root", "1356999g");
 
         //prepare Statement for SQL Query
         ps = con.prepareStatement(query);
@@ -198,9 +189,8 @@ public class DBStuff {
             //create string of sql query
             query = "UPDATE FoodAlgs SET IngName = ?, FoodName = ? WHERE FoodName = ?";
 
-            //connect to database
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB",
-                    "root", "1356999g");
+			// connect to database
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB", "root", "1356999g");
 
             //prepare Statement for SQL Query
             ps = con.prepareStatement(query);
@@ -214,12 +204,10 @@ public class DBStuff {
             Class.forName("com.mysql.jdbc.Driver");
 
             //create string of sql query
-            query = "INSERT INTO FoodAlgs"
-                    + "(IngName, FoodName) VALUES" + "(?,?)";
+				query = "INSERT INTO FoodAlgs" + "(IngName, FoodName) VALUES" + "(?,?)";
 
             //connect to database
-            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB",
-                    "root", "1356999g");
+			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/NutritionDB", "root", "1356999g");
 
             //prepare Statement for SQL Query
             ps = con.prepareStatement(query);

@@ -16,11 +16,11 @@ public class MealTest {
     ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
     
     //Test Foods
-    FoodObject apple = new FoodObject("apple","fruit",100,list,1);
-    FoodObject banana = new FoodObject("banana","fruit",80,list,1);
+	FoodObject apple = new FoodObject("apple", "fruit", 100, list, 1);
+	FoodObject banana = new FoodObject("banana", "fruit", 80, list, 1);
     
     //Test Meal
-    Meal instance = new Meal(foodList,"apple and banana",180,"Other");
+	Meal instance = new Meal(foodList, "apple and banana", 180, "Other");
 	
     /**
      * Test of getTotalCalories method, of class Meal.
@@ -121,7 +121,6 @@ public class MealTest {
         assertEquals(expResult,result);
         
     }
-    
     
     /**
      * Test of giveFood method, of class Meal.

@@ -1,4 +1,3 @@
-
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -16,15 +15,15 @@ public class ProfileTester {
 	 *  Tests to see if the meals begin empty.
 	 */
 	@Test
-	public void testMealsAreEmpty(){
-		assertTrue(tester.areMealsEmpty()); 
+	public void testMealsAreEmpty() {
+		assertTrue(tester.areMealsEmpty());
 	}
 	
 	/**
 	 * Tests to see if adding a meal adds to the size of the meals properly.
 	 */
 	@Test
-	public void testMealsArentEmpty(){
+	public void testMealsArentEmpty() {
 		tester.addMeal(testerMeal);
 		assertFalse(tester.areMealsEmpty());
 		tester.getListOfMeals().clear();
