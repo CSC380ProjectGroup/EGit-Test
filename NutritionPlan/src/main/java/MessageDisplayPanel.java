@@ -14,8 +14,11 @@ public class MessageDisplayPanel {
 	private JPanel messageDisplayPanel;
 	private JPanel textPanel;
 	private JPanel buttonsPanel;
+	private JButton backToSelect;
+	private JButton backToProfiles;
 	private JButton backToMeal;
 	private JTextField message;
+	private CardLayout layout;
 	
 	/**
 	 * Creates a MessageDisplayPanel and instantiates all of its widgets.
@@ -33,11 +36,16 @@ public class MessageDisplayPanel {
 	private void createPanel(SwingGui p){
 		messageDisplayPanel = new JPanel(new BorderLayout());
 		textPanel = new JPanel(new FlowLayout());
-		buttonsPanel = new JPanel(new FlowLayout());
+		layout = new CardLayout();
+		buttonsPanel = new JPanel(layout);
 		backToMeal = new JButton("Back");
+		backToSelect = new JButton("Back");
+		backToProfiles = new JButton("Back");
 		message = new JTextField("Empty");
 		
-		buttonsPanel.add(backToMeal);
+		buttonsPanel.add(backToMeal, "mealDisplay");
+		buttonsPanel.add(backToSelect, "selectDisplay");
+		buttonsPanel.add(backToProfiles, "profilesDisplay");
 		textPanel.add(message);
 		
 		messageDisplayPanel.add(textPanel, BorderLayout.NORTH);
@@ -46,6 +54,16 @@ public class MessageDisplayPanel {
 		backToMeal.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				parent.returnToMealDisplay();
+			}
+		});
+		backToSelect.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.returnToMealSelect();
+			}
+		});
+		backToProfiles.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.displayProfileSelect();
 			}
 		});
 	}
@@ -57,12 +75,19 @@ public class MessageDisplayPanel {
 	public void setMessage(int number){
 		if(number == 0){
 			message.setText("Your food has been added successfully!");
+			layout.show(buttonsPanel, "selectDisplay");
 		}
 		else if (number == 1){
 			message.setText("Your note has been added successfully!");
+			layout.show(buttonsPanel, "mealDisplay");
+		}
+		else if(number == 2){
+			message.setText("The profile has been created successfully.");
+			layout.show(buttonsPanel, "profileDisplay");
 		}
 		else{
 			message.setText("Unfortunately, there was an error processing your request.");
+			layout.show(buttonsPanel, "profileDisplay");
 		}
 	}
 	

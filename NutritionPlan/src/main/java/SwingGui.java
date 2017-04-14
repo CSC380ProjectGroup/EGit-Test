@@ -172,4 +172,24 @@ public class SwingGui extends JFrame{
 		fp.setPanelView(i);
 		layout.show(controlPanel, "foodPanel");
 	}
+	
+	/**
+	 * Creates a new profile by taking in a control int to decide which slot to use,
+	 * and a string to use as its name.
+	 * @param int The slot to use for the profile.
+	 * @param String The name of the profile.
+	 */
+	public void createNewProfile(int whichProfile, String name){
+		//Does absolutely nothing yet.
+	}
+	
+	/**
+	 * Copies one profile to another, completely, using ints to determine which profiles to copy.
+	 * @param int The profile to copy.
+	 * @param int The profile slot to copy to.
+	 */
+	public void copyProfile(int whichProfile, int whichSlot){
+		//Does absolutely nothing yet.
+	}
+	
 }
