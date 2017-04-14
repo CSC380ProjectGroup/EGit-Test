@@ -26,6 +26,16 @@ public class Profile {
 	}
 	
 	/**
+	 * Parameterized Constructor
+	 * @param name and list of meals
+	 */
+	
+	public Profile(String n,ArrayList<Meal> m){
+		profileName = n;
+		listOfMeals = m;
+	}
+	
+	/**
 	 * Sets the name for this profile.
 	 * @param String 
 	 */
