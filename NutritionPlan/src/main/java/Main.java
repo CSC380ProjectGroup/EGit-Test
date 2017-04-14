@@ -167,7 +167,7 @@ public class Main {
 	public static void main(String[] args) {
 		
 	/**
-	 * Profile, Meal and food objects for testing
+	 * Test Interface
 	 */
 	//Profile Options
 		Profile p1 = new Profile("Profile 1");
@@ -189,8 +189,10 @@ public class Main {
 //		System.out.println("Exiting program..."); 
 		
 	/**
-	 * Run GUI
+	 * Run Program (GUI Interface)
 	 */
+		Control c = new Control();
+		c.setup();
 		SwingGui test = new SwingGui();
 		
 	}
