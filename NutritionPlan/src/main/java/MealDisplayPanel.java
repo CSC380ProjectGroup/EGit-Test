@@ -19,7 +19,6 @@ public class MealDisplayPanel {
 	private JButton displayNotes;
 	private JButton returnToMealSelect;
 	private JButton searchFood;
-	private JButton addFood;
 	private SwingGui parent;
 	private JPanel buttonsPanel;
 	private JPanel textPanel;
@@ -56,8 +55,7 @@ public class MealDisplayPanel {
 		allergensList = new JTextField("This is where the allergens list should go.");
 		totalCals = new JTextField("This is where the list of calories should go.");
 		displayNotes = new JButton("Display Notes");
-		searchFood = new JButton("Search Food");
-		addFood = new JButton("Add Food");
+		searchFood = new JButton("Search Food to add to meal");
 		returnToMealSelect = new JButton("Back.");
 		
 		mealDisplayPanel.add(textPanel, BorderLayout.CENTER);
@@ -68,7 +66,6 @@ public class MealDisplayPanel {
 		buttonsPanel.add(displayNotes);
 		buttonsPanel.add(returnToMealSelect);
 		buttonsPanel.add(searchFood);
-		buttonsPanel.add(addFood);
 		
 		returnToMealSelect.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
@@ -82,11 +79,6 @@ public class MealDisplayPanel {
 			}
 		});
 		
-		addFood.addActionListener(new ActionListener(){
-			public void actionPerformed(ActionEvent e){
-				parent.selectFoodPanel(2);
-			}
-		});
 		displayNotes.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				parent.displayNotesPanel();

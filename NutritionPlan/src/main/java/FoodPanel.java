@@ -78,7 +78,7 @@ public class FoodPanel {
 		
 		returnToMeal1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				parent.displayMeal();
+				parent.returnToMealSelect();
 			}
 		});
 		returnToMeal2.addActionListener(new ActionListener(){
