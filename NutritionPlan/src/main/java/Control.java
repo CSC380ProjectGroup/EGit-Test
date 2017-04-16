@@ -1,3 +1,4 @@
+import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -51,7 +52,27 @@ public class Control {
             return p.getMeal(mealName);
         }
         
-        //make methods for updating profiles
+        public void createProfile(String profileName){
+            Profile p = new Profile(profileName);
+        }
+        
+        public Meal createMeal(String type){
+            Meal m = new Meal();
+            m.setType(type);
+            return m;
+        }
+        
+        public void addFoodToMeal(Meal m, String foodName) throws ClassNotFoundException, SQLException{
+            FoodObject f = DBStuff.getFoodDB(foodName);
+            m.addFood(f);
+        }
+        
+        public void addMeal(Profile p, String type){
+            Meal m = createMeal(type);
+            p.addMeal(m);
+        }
+        
+        
         
 
 		
