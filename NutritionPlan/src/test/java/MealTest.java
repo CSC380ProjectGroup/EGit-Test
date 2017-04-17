@@ -18,6 +18,8 @@ public class MealTest {
     //Test Foods
 	FoodObject apple = new FoodObject("apple", "fruit", 100, list, 1);
 	FoodObject banana = new FoodObject("banana", "fruit", 80, list, 1);
+	
+	
     
     //Test Meal
 	Meal instance = new Meal(foodList, "apple and banana", 180, "Other");
@@ -129,7 +131,7 @@ public class MealTest {
     public void testGiveFood() {
         foodList.add(apple);
         foodList.add(banana);
-        assertEquals(instance.giveFood(), "[apple] [banana] ");
+        assertEquals("apple\nbanana\n", instance.giveFood());
         foodList.clear();
     }
     
@@ -144,6 +146,29 @@ public class MealTest {
     	foodList.add(banana);
     	assertEquals(banana, instance.scanFood("banana"));
     	foodList.clear();
+    }
+    
+    @Test
+    public void testGetAllAlg() {
+        ArrayList<String> allerg1 = new ArrayList<String>();
+        ArrayList<String> allerg2 = new ArrayList<String>();
+
+    	Meal m = new Meal();
+
+    	allerg1.add("peanut");
+    	FoodObject pb = new FoodObject("Peanut Butter", "snack", 180, allerg1, 1); 
+    	m.addFood(pb);
+
+    	allerg2.add("milk");
+    	FoodObject cheese = new FoodObject("Cheese", "snack", 50, allerg2, 1);
+    	m.addFood(cheese);
+    	
+    	Meal empty = new Meal();
+    	
+    	assertEquals("peanut\nmilk\n", m.getAllAlg());
+    	assertEquals("None.", empty.getAllAlg());
+    	allerg1.clear();
+    	allerg2.clear();
     }
     
 }
