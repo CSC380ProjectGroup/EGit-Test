@@ -120,7 +120,7 @@ public class FoodObject {
 		}
 		else{
 			for(String s : this.alg){
-				sb.append("[" + s + "]" + " ");
+				sb.append(s + "\n");
 			}
 		}
 		return sb.toString();
