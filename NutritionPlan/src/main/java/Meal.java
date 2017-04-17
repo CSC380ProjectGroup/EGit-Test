@@ -99,7 +99,7 @@ public class Meal {
 		}
 		else{
 			for(FoodObject f : this.foods){
-				sb.append("[" + f.getName() + "]" + " ");
+				sb.append(f.getName() + "\n");
 			}
 		}
 		return sb.toString();
@@ -114,6 +114,23 @@ public class Meal {
 		}
 			System.out.println("DEBUG: Food object not found, returning null");
 			return null;
+	}
+	
+	// Return all allergies in the entire Meal
+	public String getAllAlg(){
+		StringBuilder sb = new StringBuilder();
+    	if(this.getListOfFood().isEmpty()) {
+    		return "None.";
+    	}
+    	else {
+    		for(int i = 0; i < this.getListOfFood().size(); i++) {
+    			String temp = this.getListOfFood().get(i).printAlg();
+    			if(!temp.equals("None.")) {
+        			sb.append(temp);
+    			}
+        	}
+        }
+    		return sb.toString();
 	}
 	
 	// return a string containing all information for the meal
