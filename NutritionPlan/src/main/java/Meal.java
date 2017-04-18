@@ -43,9 +43,9 @@ public class Meal {
     
 // Copy Constructor
     public Meal(Meal dup){
-    	this.totalCalories = dup.totalCalories;
-    	this.notes = dup.notes;
-    	this.type = dup.type;
+    	this.totalCalories = dup.getTotalCalories();
+    	this.notes = dup.getNotes();
+    	this.type = dup.getType();
     	for(FoodObject f : dup.getListOfFood()){
 			this.addFood(new FoodObject(f));
 		}

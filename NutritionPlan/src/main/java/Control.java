@@ -2,7 +2,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 /**
- * Class that stores Profiles, pulls data and the like
+ * Class that stores Profiles and Meal objects, pulls data, and the like
  */
 public class Control {
 	
@@ -18,7 +18,7 @@ public class Control {
 	
 	private Meal b3 = new Meal("Breakfast"); 
 	private Meal l3 = new Meal("Lunch"); 
-	private Meal d3= new Meal("Dinner");
+	private Meal d3 = new Meal("Dinner");
 	private Meal o3 = new Meal("Other"); 
 	
 	private ArrayList<Meal> meals = new ArrayList<Meal>();
