@@ -42,7 +42,6 @@ public class Main {
 				viewProfile(p3);
 			}
 			else if(in.equals("exit")){
-				s.close();
 				break;
 			}
 			else{
@@ -74,7 +73,6 @@ public class Main {
 				viewMeal(p.getMeal("Other"));
 			}
 			else if(in.equals("back")){
-				s.close();
 				break;
 			}
 			else{
@@ -98,7 +96,6 @@ public class Main {
 			System.out.println("");
 			
 			if(in.equals("back")) {
-				s.close();
 				break;
 			}
 			else if(in.equals("add")){
@@ -152,7 +149,6 @@ public class Main {
 			in = s.nextLine();
 
 			if (in.equals("stop")) {
-				s.close();
 				break;
 			} else {
 				fo.addAlg(in);
@@ -191,8 +187,8 @@ public class Main {
 	/**
 	 * Run Program (GUI Interface)
 	 */
-		Control c = new Control();
-		c.setup();
+//		Control c = new Control();
+//		c.setup();
 		SwingGui test = new SwingGui();
 		
 	}

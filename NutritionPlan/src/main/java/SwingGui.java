@@ -23,6 +23,7 @@ public class SwingGui extends JFrame{
 	private Meal currentMeal;
 	private CardLayout layout;
 	private JPanel controlPanel;
+	private Control dataStorage; // Need to instantiate data Storage.
 	
 	/**
 	 * Creates a basic, empty SwingGui object to work off of and sets the 
@@ -77,30 +78,52 @@ public class SwingGui extends JFrame{
 
 
 
+	/**
+	 * Selects the profile to use for the Gui panels, and then displays 
+	 * the meal select panel for the GUI.
+	 * @param i Control int to determine which profile is selected.
+	 */
 	public void selectProfile(int i) {
-		// TODO Change the method so it actually selects a profile properly.
-		//Currently just changes the panels.
+		currentProfile = dataStorage.getProfile(i);
 		layout.show(controlPanel, "selectPanel");
 	}
 
 
-
+	/**
+	 * Simply displays the create a profile panel.
+	 */
 	public void createAProfile() {
-		// Currently just displays the create a profile panel.
 		layout.show(controlPanel, "createPanel");
 	}
 
 
 
+	/**
+	 * Selects the meal from the current profile, and then updates the Meal Panel
+	 * with the meal in question to allow it to display properly.
+	 * Then, makes the meal panel visible.
+	 * @param i Control int to determine which meal is selected.
+	 */
 	public void selectMeal(int i) {
-		// TODO Make the method actually select the meal to use. Currently, just swaps panels.
-		
+		if(i == 1){
+			currentMeal = currentProfile.getMeal("Breakfast");
+		}
+		else if(i == 2){
+			currentMeal = currentProfile.getMeal("Lunch");
+		}
+		else if(i == 3){
+			currentMeal = currentProfile.getMeal("Dinner");
+		}
+		else{
+			currentMeal = currentProfile.getMeal("Other");
+		}
+		mdp.setMeal(currentMeal);
 		layout.show(controlPanel, "displayPanel");
 	}
 
 
 	/**
-	 * Displays the profile select panel, returning from the meal select panel.
+	 * Displays the profile select panel, returning from another panel.
 	 */
 	public void displayProfileSelect() {
 		layout.show(controlPanel, "profilePanel");
@@ -115,7 +138,9 @@ public class SwingGui extends JFrame{
 	}
 
 
-
+	/**
+	 * Returns to the meal display panel from another panel.
+	 */
 	public void returnToMealDisplay() {
 		layout.show(controlPanel, "displayPanel");
 	}
@@ -128,10 +153,14 @@ public class SwingGui extends JFrame{
 	}
 
 
-
+	/**
+	 * Searches the database for the food in question and then displays it in the food display panel.
+	 * @param text The name of the food to search.
+	 */
 	public void searchFood(String text) {
-		//Does nothing. Absolutely nothing right now. 
-		
+		FoodObject temp = new FoodObject();
+		//Needs to search for the food object from the database.
+		fp.setFoodForSearch(temp);
 	}
 
 
@@ -142,7 +171,7 @@ public class SwingGui extends JFrame{
 	 * @param text3
 	 */
 	public void addFood(String text, String text2, String text3) {
-		// Does ABSOLUTELY nothing right now, besides updating and displaying the message panel.
+		// Needs to create a food object and add it to the database.
 		msgdp.setMessage(0);
 		layout.show(controlPanel, "messagePanel");
 	}
@@ -151,6 +180,7 @@ public class SwingGui extends JFrame{
 	 * Shows the notes panel for the current meal.
 	 */
 	public void displayNotesPanel(){
+		np.setNote(currentMeal.getNotes());
 		layout.show(controlPanel, "notesPanel");
 	}
 	
@@ -159,7 +189,7 @@ public class SwingGui extends JFrame{
 	 * @param String The text to store.
 	 */
 	public void storeMessage(String str){
-		//Does not store the message yet. Will store it soon.
+		currentMeal.setNotes(str);
 		msgdp.setMessage(1);
 		layout.show(controlPanel, "messagePanel");
 	}
@@ -174,13 +204,23 @@ public class SwingGui extends JFrame{
 	}
 	
 	/**
+	 * Adds the input food to the current meal and updates the meal display panel.
+	 * @param FoodObject The food to add to the meal.
+	 */
+	public void addFoodToMeal(FoodObject temp){
+		currentMeal.addFood(temp);
+		mdp.setMeal(currentMeal);
+	}
+	
+	/**
 	 * Creates a new profile by taking in a control int to decide which slot to use,
 	 * and a string to use as its name.
 	 * @param int The slot to use for the profile.
 	 * @param String The name of the profile.
 	 */
 	public void createNewProfile(int whichProfile, String name){
-		//Does absolutely nothing yet.
+		//This method needs to be renamed to actually interface with the Control class.
+		dataStorage.createProfile(whichProfile, name);
 	}
 	
 	/**
@@ -189,7 +229,19 @@ public class SwingGui extends JFrame{
 	 * @param int The profile slot to copy to.
 	 */
 	public void copyProfile(int whichProfile, int whichSlot){
-		//Does absolutely nothing yet.
+		//This method needs to be renamed to actuall interface with the Control class.
+		dataStorage.copyProfile(whichProfile, whichSlot);
+	}
+
+
+	/**
+	 * Removes a food from the current meal based on the food name in the input string.
+	 * @param text The name of the food to remove.
+	 */
+	public void removeFoodFromMeal(String text) {
+		// TODO Needs to take the string, make a food object or search the database for it,
+		// Then just call the remove food method for the current meal.
+		
 	}
 	
 }

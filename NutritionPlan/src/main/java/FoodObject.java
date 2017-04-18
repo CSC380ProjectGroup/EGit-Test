@@ -30,6 +30,15 @@ public class FoodObject {
 		alg = a;
 		quantity = q;
 	}
+	
+// Control Constructor
+	public FoodObject(FoodObject dup){
+		this.name = dup.name;
+		this.type = dup.type;
+		this.cal = dup.cal;
+		this.alg = dup.alg;
+		this.quantity = dup.quantity;
+	}
 
 // Getters and Setters
 	public String getName() {
@@ -71,7 +80,23 @@ public class FoodObject {
 	public void setQuantity(int quantity) {
 		this.adjustCal(quantity);
 		this.quantity = quantity;
-	} 
+	}
+	
+	/**
+	 * Returns a string of all of the allergens associated with this food.
+	 * @return String
+	 */
+	public String getAllergenString(){
+		if(alg.isEmpty()){
+			return "No Allergens.";
+		}
+		String totalAlls = "";
+		for(String s : alg){
+			totalAlls = totalAlls+s;
+			totalAlls = totalAlls+", ";
+		}
+		return totalAlls;
+	}
 
 // Methods
 	
