@@ -15,8 +15,7 @@ public class Meal {
     private String notes;
     ArrayList<FoodObject> foods;
     
-// Constructors
-    // Default Constructor
+// Default Constructor
     public Meal() {
         totalCalories = 0;
         //mealDate = null;
@@ -25,7 +24,7 @@ public class Meal {
         type = "";
     }
     
-    // Constructor for establishing meal type only (used in Main)
+// Constructor for establishing meal type only (used in Main)
     public Meal(String t){
     	totalCalories = 0;
         notes = "";
@@ -33,13 +32,23 @@ public class Meal {
     	type = t;
     }
     
-    // Parameterized Constructor
+// Parameterized Constructor
     public Meal(ArrayList<FoodObject> items, String n, int totalCal, String t) {
         totalCalories = totalCal;
         notes = n;
         foods = items;
         //mealDate = d;
         type = t;
+    }
+    
+// Copy Constructor
+    public Meal(Meal dup){
+    	this.totalCalories = dup.totalCalories;
+    	this.notes = dup.notes;
+    	this.type = dup.type;
+    	for(FoodObject f : dup.getListOfFood()){
+			this.addFood(new FoodObject(f));
+		}
     }
     
 // Getters and Setters

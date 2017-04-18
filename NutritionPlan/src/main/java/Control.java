@@ -6,10 +6,20 @@ import java.util.*;
  */
 public class Control {
 	
-	private Meal breakfast = new Meal("Breakfast"); 
-	private Meal lunch = new Meal("Lunch"); 
-	private Meal dinner = new Meal("Dinner");
-	private Meal other = new Meal("Other"); 
+	private Meal b1 = new Meal("Breakfast"); 
+	private Meal l1 = new Meal("Lunch"); 
+	private Meal d1 = new Meal("Dinner");
+	private Meal o1 = new Meal("Other"); 
+	
+	private Meal b2 = new Meal("Breakfast"); 
+	private Meal l2 = new Meal("Lunch"); 
+	private Meal d2 = new Meal("Dinner");
+	private Meal o2 = new Meal("Other"); 
+	
+	private Meal b3 = new Meal("Breakfast"); 
+	private Meal l3 = new Meal("Lunch"); 
+	private Meal d3= new Meal("Dinner");
+	private Meal o3 = new Meal("Other"); 
 	
 	private ArrayList<Meal> meals = new ArrayList<Meal>();
 
@@ -21,6 +31,7 @@ public class Control {
 	
 	
 	// Sets up all of the objects, to be executed in Main upon running the program
+//TODO: Fix this method
 	public void setup(){
 		meals.addAll(Arrays.asList(breakfast, lunch, dinner, other));
                 for (Profile p : profiles) {
@@ -31,11 +42,10 @@ public class Control {
                 profiles.addAll(Arrays.asList(p1, p2, p3));
 	}
         
-    // Copies profile q to profile w where q and w are the names of profiles
-    public void copyProfile(String q, String w){
-        Profile qq = getProfile(q);
-        Profile ww = getProfile(w);
-        ww = qq;
+    // Copies profile q's information to Profile w, using copy constructors
+    public void copyProfile(Profile q, Profile w){
+        Profile temp = new Profile(q);
+        w = temp;
     }
     
     public Profile getProfile(String profileName){
