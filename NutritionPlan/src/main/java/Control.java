@@ -6,10 +6,12 @@ import java.util.*;
  */
 public class Control {
 	
+
 	private Meal b1; 
 	private Meal l1; 
 	private Meal d1;
 	private Meal o1; 
+
 	
 	private Meal b2; 
 	private Meal l2; 

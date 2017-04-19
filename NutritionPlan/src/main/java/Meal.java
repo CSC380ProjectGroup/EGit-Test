@@ -43,9 +43,11 @@ public class Meal {
     
 // Copy Constructor
     public Meal(Meal dup){
+
     	this.totalCalories = dup.getTotalCalories();
     	this.notes = dup.getNotes();
     	this.type = dup.getType();
+
     	for(FoodObject f : dup.getListOfFood()){
 			this.addFood(new FoodObject(f));
 		}
@@ -123,6 +125,22 @@ public class Meal {
 		}
 			System.out.println("DEBUG: Food object not found, returning null");
 			return null;
+	}
+	
+	/**
+	 * Returns a clean list of food names for the GUI.
+	 * @return String
+	 */
+	public String getFoodString(){
+		if(foods.isEmpty()){
+			return "This meal has no foods within it.";
+		}
+		String totalString = "";
+		for(FoodObject temp: foods){
+			totalString = totalString+temp.getName();
+			totalString = totalString+", ";
+		}
+		return totalString;
 	}
 	
 	// Return all allergies in the entire Meal

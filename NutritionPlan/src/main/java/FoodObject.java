@@ -80,7 +80,23 @@ public class FoodObject {
 	public void setQuantity(int quantity) {
 		this.adjustCal(quantity);
 		this.quantity = quantity;
-	} 
+	}
+	
+	/**
+	 * Returns a string of all of the allergens associated with this food.
+	 * @return String
+	 */
+	public String getAllergenString(){
+		if(alg.isEmpty()){
+			return "No Allergens.";
+		}
+		String totalAlls = "";
+		for(String s : alg){
+			totalAlls = totalAlls+s;
+			totalAlls = totalAlls+", ";
+		}
+		return totalAlls;
+	}
 
 // Methods
 	

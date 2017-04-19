@@ -24,13 +24,16 @@ public class FoodPanel {
 	private JButton returnToMeal2;
 	private JButton searchForFood;
 	private JButton addFood;
+	private JButton addFoodToMeal;
 	private CardLayout layout;
+	private FoodObject foodToDisplay;
 	
 	/**
 	 * Creates a FoodPanel object and instantiates all of its widgets.
 	 * @param SwingGui the parent frame for this object.
 	 */
 	public FoodPanel(SwingGui p){
+		foodToDisplay = new FoodObject();
 		parent = p;
 		createPanel(p);
 	}
@@ -58,12 +61,14 @@ public class FoodPanel {
 		returnToMeal2 = new JButton("Back");
 		searchForFood = new JButton("Search");
 		addFood = new JButton("Add Food");
+		addFoodToMeal = new JButton("Add Food to Meal");
 		
 		addFoodButtons.add(returnToMeal1);
 		addFoodButtons.add(addFood);
 		
 		displayFoodButtons.add(returnToMeal2);
 		displayFoodButtons.add(searchForFood);
+		displayFoodButtons.add(addFoodToMeal);
 		
 		buttonsControlPanel.add(addFoodButtons, "addFood");
 		buttonsControlPanel.add(displayFoodButtons, "displayFood");
@@ -94,6 +99,11 @@ public class FoodPanel {
 		addFood.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 				parent.addFood(foodName.getText(), calories.getText(), allergens.getText());
+			}
+		});
+		addFoodToMeal.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				parent.addFoodToMeal(foodToDisplay);
 			}
 		});
 	}
@@ -130,6 +140,17 @@ public class FoodPanel {
 			foodName.setText("Enter food name here.");
 			layout.show(buttonsControlPanel, "addFood");
 		}
+	}
+	
+	/**
+	 * Sets the panel to display the current food object, when searching for a food 
+	 * add to the meal.
+	 */
+	public void setFoodForSearch(FoodObject temp){
+		foodToDisplay = temp;
+		String calString = ""+temp.getCal();
+		calories.setText(calString);
+		allergens.setText(temp.getAllergenString());
 	}
 }
 

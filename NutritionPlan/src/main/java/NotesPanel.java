@@ -74,4 +74,12 @@ public class NotesPanel {
 		return notesPanel;
 	}
 	
+	
+	/**
+	 * Sets the note for the note panel.
+	 * @param String The current note for the current meal.
+	 */
+	public void setNote(String str){
+		notes.setText(str);
+	}
 }
