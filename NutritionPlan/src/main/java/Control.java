@@ -6,29 +6,54 @@ import java.util.*;
  */
 public class Control {
 	
-	private Meal b1 = new Meal("Breakfast"); 
-	private Meal l1 = new Meal("Lunch"); 
-	private Meal d1 = new Meal("Dinner");
-	private Meal o1 = new Meal("Other"); 
+	private Meal b1; 
+	private Meal l1; 
+	private Meal d1;
+	private Meal o1; 
 	
-	private Meal b2 = new Meal("Breakfast"); 
-	private Meal l2 = new Meal("Lunch"); 
-	private Meal d2 = new Meal("Dinner");
-	private Meal o2 = new Meal("Other"); 
+	private Meal b2; 
+	private Meal l2; 
+	private Meal d2;
+	private Meal o2; 
 	
-	private Meal b3 = new Meal("Breakfast"); 
-	private Meal l3 = new Meal("Lunch"); 
-	private Meal d3 = new Meal("Dinner");
-	private Meal o3 = new Meal("Other"); 
+	private Meal b3; 
+	private Meal l3;
+	private Meal d3;
+	private Meal o3; 
 	
-	private ArrayList<Meal> meals = new ArrayList<Meal>();
+	private ArrayList<Meal> meals;
 
-	private Profile p1 = new Profile("Profile 1");
-	private Profile p2 = new Profile("Profile 2");
-	private Profile p3 = new Profile("Profile 3");
+	private Profile p1;
+	private Profile p2;
+	private Profile p3;
         
-    private ArrayList<Profile> profiles = new ArrayList<Profile>();
+    private ArrayList<Profile> profiles;
 	
+// Default Constructor
+    public Control() {
+    	b1 = new Meal("Breakfast");
+    	l1 = new Meal("Lunch"); 
+    	d1 = new Meal("Dinner");
+    	o1 = new Meal("Other");
+    	
+    	b2 = new Meal("Breakfast");
+    	l2 = new Meal("Lunch"); 
+    	d2 = new Meal("Dinner");
+    	o2 = new Meal("Other");
+    	
+    	b3 = new Meal("Breakfast"); 
+    	l3 = new Meal("Lunch"); 
+    	d3 = new Meal("Dinner");
+    	o3 = new Meal("Other"); 
+
+    	meals = new ArrayList<Meal>();
+    	
+    	p1 = new Profile("Profile 1");
+    	p2 = new Profile("Profile 2");
+    	p3 = new Profile("Profile 3");
+    	
+    	
+    }
 	
 	// Sets up all of the objects, to be executed in Main upon running the program
 //TODO: Fix this method
