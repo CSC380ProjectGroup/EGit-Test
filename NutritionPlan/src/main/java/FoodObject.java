@@ -33,11 +33,11 @@ public class FoodObject {
 	
 // Control Constructor
 	public FoodObject(FoodObject dup){
-		this.name = dup.name;
-		this.type = dup.type;
-		this.cal = dup.cal;
-		this.alg = dup.alg;
-		this.quantity = dup.quantity;
+		this.name = dup.getName();
+		this.type = dup.getType();
+		this.cal = dup.getCal();
+		this.alg = dup.getAlg();
+		this.quantity = dup.getQuantity();
 	}
 
 // Getters and Setters
