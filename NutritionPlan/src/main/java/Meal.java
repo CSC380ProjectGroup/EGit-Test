@@ -102,7 +102,7 @@ public class Meal {
 		return foods;
 	}
     
-	// return a string listing all of the foodobjects in the meal
+	// return a STRING listing all of the foodobjects in the meal
 	public String giveFood(){
 		StringBuilder sb = new StringBuilder();
 		if(this.foods.isEmpty()){
@@ -110,7 +110,7 @@ public class Meal {
 		}
 		else{
 			for(FoodObject f : this.foods){
-				sb.append(f.getName() + "\n");
+				sb.append(f.getName() + ", ");
 			}
 		}
 		return sb.toString();
@@ -127,23 +127,7 @@ public class Meal {
 			return null;
 	}
 	
-	/**
-	 * Returns a clean list of food names for the GUI.
-	 * @return String
-	 */
-	public String getFoodString(){
-		if(foods.isEmpty()){
-			return "This meal has no foods within it.";
-		}
-		String totalString = "";
-		for(FoodObject temp: foods){
-			totalString = totalString+temp.getName();
-			totalString = totalString+", ";
-		}
-		return totalString;
-	}
-	
-	// Return all allergies in the entire Meal
+	// Return a STRING listing all allergies in the entire Meal
 	public String getAllAlg(){
 		StringBuilder sb = new StringBuilder();
     	if(this.getListOfFood().isEmpty()) {

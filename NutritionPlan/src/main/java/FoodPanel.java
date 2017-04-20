@@ -150,7 +150,7 @@ public class FoodPanel {
 		foodToDisplay = temp;
 		String calString = ""+temp.getCal();
 		calories.setText(calString);
-		allergens.setText(temp.getAllergenString());
+		allergens.setText(temp.printAlg());
 	}
 }
 

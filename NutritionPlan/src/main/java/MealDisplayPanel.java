@@ -148,7 +148,7 @@ public class MealDisplayPanel {
 		allergensList.setText(currentMeal.getAllAlg());
 		String totalCalories = ""+currentMeal.getTotalCalories();
 		totalCals.setText(totalCalories);
-		String foodDescript = currentMeal.getFoodString();
+		String foodDescript = currentMeal.giveFood();
 		foodList.setText(foodDescript);
 	}
 }
