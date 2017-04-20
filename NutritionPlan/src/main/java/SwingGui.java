@@ -56,6 +56,8 @@ public class SwingGui extends JFrame{
 		mdp = new MealDisplayPanel(this, currentMeal);
 		mealDPanel = mdp.getPanel();
 		
+		dataStorage = new Control();
+		
 		//Creates a dummy profile to work with at first, before the profile is selected.
 		currentProfile = new Profile();
 		

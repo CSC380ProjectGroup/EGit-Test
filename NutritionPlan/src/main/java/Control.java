@@ -2,52 +2,22 @@ import java.sql.SQLException;
 import java.util.*;
 
 /**
- * Class that stores Profiles and Meal objects, pulls data, and the like
+ * Class that stores Profiles objects, pulls data, and the like
  */
 public class Control {
-	
-	private Meal b1; 
-	private Meal l1; 
-	private Meal d1;
-	private Meal o1; 
-	
-	private Meal b2; 
-	private Meal l2; 
-	private Meal d2;
-	private Meal o2; 
-	
-	private Meal b3; 
-	private Meal l3;
-	private Meal d3;
-	private Meal o3; 
-	
+
+// Meal ArrayLists for each Profile
 	private ArrayList<Meal> meals1;
 	private ArrayList<Meal> meals2;
 	private ArrayList<Meal> meals3;
 
+// Profile Objects
 	private Profile p1;
 	private Profile p2;
 	private Profile p3;
-        
-    private ArrayList<Profile> profiles;
-	
+        	
 // Default Constructor
     public Control() {
-    	b1 = new Meal("Breakfast");
-    	l1 = new Meal("Lunch"); 
-    	d1 = new Meal("Dinner");
-    	o1 = new Meal("Other");
-    	
-    	b2 = new Meal("Breakfast");
-    	l2 = new Meal("Lunch"); 
-    	d2 = new Meal("Dinner");
-    	o2 = new Meal("Other");
-    	
-    	b3 = new Meal("Breakfast"); 
-    	l3 = new Meal("Lunch"); 
-    	d3 = new Meal("Dinner");
-    	o3 = new Meal("Other"); 
-
     	meals1 = new ArrayList<Meal>();
     	meals2 = new ArrayList<Meal>();
     	meals3 = new ArrayList<Meal>();
@@ -56,11 +26,26 @@ public class Control {
     	p2 = new Profile("Profile 2");
     	p3 = new Profile("Profile 3");
     	
-    	
+    	setup();
     }
 	
-	// Sets up all of the objects, to be executed in Main upon running the program
+// Sets up Profile objects to include their own empty Meal objects on launch
 	public void setup() {
+		Meal b1 = new Meal("Breakfast");
+		Meal l1 = new Meal("Lunch"); 
+		Meal d1 = new Meal("Dinner");
+		Meal o1 = new Meal("Other");
+    	
+		Meal b2 = new Meal("Breakfast");
+		Meal l2 = new Meal("Lunch"); 
+		Meal d2 = new Meal("Dinner");
+		Meal o2 = new Meal("Other");
+    	
+		Meal b3 = new Meal("Breakfast"); 
+		Meal l3 = new Meal("Lunch"); 
+		Meal d3 = new Meal("Dinner");
+		Meal o3 = new Meal("Other"); 
+		
 		meals1.addAll(Arrays.asList(b1, l1, d1, o1));
 		for (Meal meal : meals1) {
 			p1.addMeal(meal);
@@ -75,12 +60,9 @@ public class Control {
 		for (Meal meal : meals3) {
 			p3.addMeal(meal);
 		}
-
-		profiles.addAll(Arrays.asList(p1, p2, p3));
 	}
 	
-	
-	// Return Profile object corresponding to the given int. 
+// Return Profile object corresponding to the given int. 
 	public Profile selectProfile(int i){
 		if(i == 1){
 			return this.p1;
@@ -97,7 +79,7 @@ public class Control {
 		}
 	}
 	
-	// Setters for the three Profiles
+// Setters for the three Profiles
 	 public void setP1(Profile p){
 	    this.p1 = p;
 	 }
@@ -108,7 +90,7 @@ public class Control {
 		this.p3 = p;
 	 }
         
-    // Copies profile q's information to Profile w, using copy constructors
+// Copies profile q's information to Profile w, using copy constructors
     public void copyProfile(int q, int w){
         Profile temp = new Profile(this.selectProfile(q));
         if(w == 1){
@@ -125,12 +107,27 @@ public class Control {
         }
     }
     
+// Get Meal object from given Profile
     public Meal getMeal(Profile p, String mealName){
         return p.getMeal(mealName);
     }
     
     public void createProfile(int i, String profileName){
         Profile temp = new Profile(profileName);
+        
+        Meal b = new Meal("Breakfast");
+        Meal l = new Meal("Lunch");
+        Meal d = new Meal("Dinner");
+        Meal o = new Meal("Other");
+        
+        ArrayList<Meal> tempList = new ArrayList<Meal>();
+        
+        tempList.addAll(Arrays.asList(b, l, d, o));
+        
+        for(Meal m : tempList){
+        	temp.addMeal(m);
+        }
+        
         if(i == 1){
         	this.setP1(temp);
         }
@@ -142,6 +139,7 @@ public class Control {
         }
     }
     
+// Create a Meal object
     public Meal createMeal(String type){
         Meal m = new Meal();
         m.setType(type);
@@ -177,6 +175,5 @@ public class Control {
 	public void setMealNotes(Meal m, String n){
 		m.setNotes(n);
 	}
-	
-	
+
 }
