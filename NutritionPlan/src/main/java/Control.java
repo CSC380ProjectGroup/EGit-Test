@@ -27,8 +27,6 @@ public class Control {
     	p3 = new Profile("Profile 3");
         
         setup();
-    	
-    	setup();
     }
 	
 // Sets up Profile objects to include their own empty Meal objects on launch

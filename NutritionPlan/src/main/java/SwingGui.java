@@ -80,7 +80,7 @@ public class SwingGui extends JFrame{
 		setResizable(true);
 		setVisible(true);
                 
-                dataStorage = new Control();
+        dataStorage = new Control();
 	}
 
 
