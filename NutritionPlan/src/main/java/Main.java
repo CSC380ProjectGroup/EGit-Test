@@ -187,8 +187,6 @@ public class Main {
 	/**
 	 * Run Program (GUI Interface)
 	 */
-//		Control c = new Control();
-//		c.setup();
 		SwingGui test = new SwingGui();
 		
 	}
