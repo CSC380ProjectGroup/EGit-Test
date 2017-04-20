@@ -2,6 +2,9 @@ import javax.swing.*;
 import javax.swing.SwingUtilities.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 //Test.???
 public class SwingGui extends JFrame{
@@ -23,7 +26,7 @@ public class SwingGui extends JFrame{
 	private Meal currentMeal;
 	private CardLayout layout;
 	private JPanel controlPanel;
-	private Control dataStorage; // Need to instantiate data Storage.
+	private Control dataStorage; 
 	
 	/**
 	 * Creates a basic, empty SwingGui object to work off of and sets the 
@@ -74,6 +77,8 @@ public class SwingGui extends JFrame{
 		pack();
 		setResizable(true);
 		setVisible(true);
+                
+                dataStorage = new Control();
 	}
 
 
@@ -157,9 +162,8 @@ public class SwingGui extends JFrame{
 	 * Searches the database for the food in question and then displays it in the food display panel.
 	 * @param text The name of the food to search.
 	 */
-	public void searchFood(String text) {
-		FoodObject temp = new FoodObject();
-		//Needs to search for the food object from the database.
+	public void searchFood(String text) throws ClassNotFoundException, SQLException {
+                FoodObject temp = DBStuff.getFoodDB(text);
 		fp.setFoodForSearch(temp);
 	}
 
@@ -170,8 +174,12 @@ public class SwingGui extends JFrame{
 	 * @param text2
 	 * @param text3
 	 */
-	public void addFood(String text, String text2, String text3) {
-		// Needs to create a food object and add it to the database.
+	public void addFood(String name, String cals, String algs, int q) throws ClassNotFoundException, SQLException {
+                String[] algsList = algs.split(", ");
+                ArrayList<String> aL = new ArrayList<String>(Arrays.asList(algsList));
+                int c = Integer.parseInt(cals);
+                FoodObject food = new FoodObject(name,"dummy",c,aL,q);
+                DBStuff.addNewFoodDB(food);
 		msgdp.setMessage(0);
 		layout.show(controlPanel, "messagePanel");
 	}

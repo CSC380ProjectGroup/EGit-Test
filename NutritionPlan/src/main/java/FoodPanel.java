@@ -2,6 +2,9 @@ import javax.swing.*;
 import javax.swing.SwingUtilities.*;
 import java.awt.event.*;
 import java.awt.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Creates a panel that either allows someone to add a food to the database, or
@@ -93,12 +96,24 @@ public class FoodPanel {
 		});
 		searchForFood.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				parent.searchFood(foodName.getText());
+                            try {
+                                parent.searchFood(foodName.getText());
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(FoodPanel.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(FoodPanel.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 			}
 		});
 		addFood.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				parent.addFood(foodName.getText(), calories.getText(), allergens.getText());
+                            try {
+                                parent.addFood(foodName.getText(), calories.getText(), allergens.getText(),1);
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(FoodPanel.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(FoodPanel.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 			}
 		});
 		addFoodToMeal.addActionListener(new ActionListener(){

@@ -55,6 +55,8 @@ public class Control {
     	p1 = new Profile("Profile 1");
     	p2 = new Profile("Profile 2");
     	p3 = new Profile("Profile 3");
+        
+        setup();
     	
     	
     }
@@ -75,8 +77,6 @@ public class Control {
 		for (Meal meal : meals3) {
 			p3.addMeal(meal);
 		}
-
-		profiles.addAll(Arrays.asList(p1, p2, p3));
 	}
 	
 	
