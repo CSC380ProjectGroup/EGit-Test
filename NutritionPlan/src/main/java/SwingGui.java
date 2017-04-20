@@ -84,7 +84,7 @@ public class SwingGui extends JFrame{
 	 * @param i Control int to determine which profile is selected.
 	 */
 	public void selectProfile(int i) {
-		currentProfile = dataStorage.getProfile(i);
+		currentProfile = dataStorage.selectProfile(i);
 		layout.show(controlPanel, "selectPanel");
 	}
 
@@ -229,7 +229,7 @@ public class SwingGui extends JFrame{
 	 * @param int The profile slot to copy to.
 	 */
 	public void copyProfile(int whichProfile, int whichSlot){
-		//This method needs to be renamed to actuall interface with the Control class.
+		//This method needs to be renamed to actually interface with the Control class.
 		dataStorage.copyProfile(whichProfile, whichSlot);
 	}
 
