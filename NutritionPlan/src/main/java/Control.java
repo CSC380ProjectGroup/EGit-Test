@@ -21,7 +21,9 @@ public class Control {
 	private Meal d3;
 	private Meal o3; 
 	
-	private ArrayList<Meal> meals;
+	private ArrayList<Meal> meals1;
+	private ArrayList<Meal> meals2;
+	private ArrayList<Meal> meals3;
 
 	private Profile p1;
 	private Profile p2;
@@ -46,7 +48,9 @@ public class Control {
     	d3 = new Meal("Dinner");
     	o3 = new Meal("Other"); 
 
-    	meals = new ArrayList<Meal>();
+    	meals1 = new ArrayList<Meal>();
+    	meals2 = new ArrayList<Meal>();
+    	meals3 = new ArrayList<Meal>();
     	
     	p1 = new Profile("Profile 1");
     	p2 = new Profile("Profile 2");
@@ -56,39 +60,86 @@ public class Control {
     }
 	
 	// Sets up all of the objects, to be executed in Main upon running the program
-//TODO: Fix this method
-	public void setup(){
-		meals.addAll(Arrays.asList(breakfast, lunch, dinner, other));
-                for (Profile p : profiles) {
-                    for (Meal meal : meals) {
-                        p.addMeal(meal);
-                    }
-                }
-                profiles.addAll(Arrays.asList(p1, p2, p3));
+	public void setup() {
+		meals1.addAll(Arrays.asList(b1, l1, d1, o1));
+		for (Meal meal : meals1) {
+			p1.addMeal(meal);
+		}
+		
+		meals2.addAll(Arrays.asList(b2, l2, d2, o2));
+		for (Meal meal : meals2) {
+			p2.addMeal(meal);
+		}
+		
+		meals3.addAll(Arrays.asList(b3, l3, d3, o3));
+		for (Meal meal : meals3) {
+			p3.addMeal(meal);
+		}
+
+		profiles.addAll(Arrays.asList(p1, p2, p3));
 	}
+	
+	
+	// Return Profile object corresponding to the given int. 
+	public Profile selectProfile(int i){
+		if(i == 1){
+			return this.p1;
+		}
+		else if(i == 2){
+			return this.p2;
+		}
+		else if(i == 3){
+			return this.p3;
+		}
+		else{
+			System.out.println("WARNING: INVALID PROFILE SLOT, RETURNING NULL"); // Debug
+			return null;
+		}
+	}
+	
+	// Setters for the three Profiles
+	 public void setP1(Profile p){
+	    this.p1 = p;
+	 }
+	 public void setP2(Profile p){
+		this.p2 = p;
+	 }
+	 public void setP3(Profile p){
+		this.p3 = p;
+	 }
         
     // Copies profile q's information to Profile w, using copy constructors
-    public void copyProfile(Profile q, Profile w){
-        Profile temp = new Profile(q);
-        w = temp;
-    }
-    
-    public Profile getProfile(String profileName){
-        Profile pr = null;
-        for (Profile p: profiles) {
-            if (p.getName().equals(profileName)) {
-                pr = p;
-            }
+    public void copyProfile(int q, int w){
+        Profile temp = new Profile(this.selectProfile(q));
+        if(w == 1){
+        	this.setP1(temp);
         }
-        return pr;
+        else if(w == 2){
+        	this.setP2(temp);
+        }
+        else if(w == 3){
+        	this.setP3(temp);
+        }
+        else{
+        	System.out.println("WARNING: COPY FAILED, INVALID PROFILE SLOT"); // Debug
+        }
     }
     
     public Meal getMeal(Profile p, String mealName){
         return p.getMeal(mealName);
     }
     
-    public void createProfile(String profileName){
-        Profile p = new Profile(profileName);
+    public void createProfile(int i, String profileName){
+        Profile temp = new Profile(profileName);
+        if(i == 1){
+        	this.setP1(temp);
+        }
+        else if(i == 2){
+        	this.setP2(temp);
+        }
+        else if(i == 3){
+        	this.setP3(temp);
+        }
     }
     
     public Meal createMeal(String type){
