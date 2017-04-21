@@ -22,6 +22,7 @@ public class FoodPanel {
 	private JTextField foodName;
 	private JTextField calories;
 	private JTextField allergens;
+	private JTextField quantity;
 	private JTextField infoMessage;
 	private JButton returnToMeal1;
 	private JButton returnToMeal2;
@@ -59,6 +60,7 @@ public class FoodPanel {
 		foodName.setEditable(true);
 		calories = new JTextField("Calories");
 		allergens = new JTextField("Allergens");
+		quantity = new JTextField("Quantity");
 		
 		returnToMeal1 = new JButton("Back");
 		returnToMeal2 = new JButton("Back");
@@ -108,7 +110,7 @@ public class FoodPanel {
 		addFood.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
                             try {
-                                parent.addFood(foodName.getText(), calories.getText(), allergens.getText(),1);
+                                parent.addFood(foodName.getText(), calories.getText(), allergens.getText(),quantity.getText());
                             } catch (ClassNotFoundException ex) {
                                 Logger.getLogger(FoodPanel.class.getName()).log(Level.SEVERE, null, ex);
                             } catch (SQLException ex) {
@@ -141,9 +143,11 @@ public class FoodPanel {
 			infoMessage.setText("To search for a food, please enter the food's name and hit Search.");
 			calories.setEditable(false);
 			allergens.setEditable(false);
+			quantity.setEditable(false);
 			foodName.setText("Enter food name");
 			calories.setText("Calories");
 			allergens.setText("Allergens");
+			quantity.setText("Quantity");
 			layout.show(buttonsControlPanel, "displayFood");
 		}
 		else if(i == 2){
@@ -151,8 +155,10 @@ public class FoodPanel {
 			allergens.setText("When adding an allergen, separate them by a comma and one space.");
 			calories.setEditable(true);
 			allergens.setEditable(true);
+			quantity.setEditable(true);
 			calories.setText("Enter calories here.");
 			foodName.setText("Enter food name here.");
+			quantity.setText("Enter the quantity of the food here.");
 			layout.show(buttonsControlPanel, "addFood");
 		}
 	}
@@ -166,6 +172,7 @@ public class FoodPanel {
 		String calString = ""+temp.getCal();
 		calories.setText(calString);
 		allergens.setText(temp.printAlg());
+		quantity.setText(temp.getType());
 	}
 }
 

@@ -176,10 +176,11 @@ public class SwingGui extends JFrame{
 	 * @param text2
 	 * @param text3
 	 */
-	public void addFood(String name, String cals, String algs, int q) throws ClassNotFoundException, SQLException {
+	public void addFood(String name, String cals, String algs, String quantity) throws ClassNotFoundException, SQLException {
                 String[] algsList = algs.split(", ");
                 ArrayList<String> aL = new ArrayList<String>(Arrays.asList(algsList));
                 int c = Integer.parseInt(cals);
+                int q = Integer.parseInt(quantity);
                 FoodObject food = new FoodObject(name,"dummy",c,aL,q);
                 DBStuff.addNewFoodDB(food);
 		msgdp.setMessage(0);
@@ -251,7 +252,8 @@ public class SwingGui extends JFrame{
 	public void removeFoodFromMeal(String text) {
 		// TODO Needs to take the string, make a food object or search the database for it,
 		// Then just call the remove food method for the current meal.
-		
+		FoodObject temp = new FoodObject(); // This needs to be the food specified from the text string.
+		currentMeal.removeFood(temp);
 	}
 	
 }
