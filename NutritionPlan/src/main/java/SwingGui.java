@@ -254,6 +254,8 @@ public class SwingGui extends JFrame{
 		// Then just call the remove food method for the current meal.
 		FoodObject temp = new FoodObject(); // This needs to be the food specified from the text string.
 		currentMeal.removeFood(temp);
+		returnToMealSelect();
+		returnToMealDisplay();
 	}
 	
 }
