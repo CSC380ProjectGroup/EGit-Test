@@ -82,6 +82,7 @@ public class FoodPanel {
 		infoPanel.add(foodName);
 		infoPanel.add(calories);
 		infoPanel.add(allergens);
+                infoPanel.add(quantity);
 		
 		foodPanel.add(infoPanel, BorderLayout.CENTER);
 		foodPanel.add(buttonsControlPanel, BorderLayout.SOUTH);

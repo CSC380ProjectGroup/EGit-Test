@@ -1,8 +1,6 @@
 import javax.swing.*;
-import javax.swing.SwingUtilities.*;
 import java.awt.event.*;
 import java.awt.*;
-import java.util.ArrayList; // Not used in this current barebones implementation.
 ///test
 /**
  * Creates and stores a panel for the displaying of a meal's information
@@ -116,10 +114,10 @@ public class MealDisplayPanel {
 		});
 		commitRemove.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
-				parent.removeFoodFromMeal(foodNameToRemove.getText());
-				foodNameToRemove.setText("Enter the name of the food to remove here.");
-				setMeal(currentMeal);
-				layout.show(buttonsControlPanel, "buttons");
+                            parent.removeFoodFromMeal(foodNameToRemove.getText());
+                            foodNameToRemove.setText("Enter the name of the food to remove here.");
+                            setMeal(currentMeal);
+                            layout.show(buttonsControlPanel, "buttons");
 			}
 		});
 		cancelRemove.addActionListener(new ActionListener(){
