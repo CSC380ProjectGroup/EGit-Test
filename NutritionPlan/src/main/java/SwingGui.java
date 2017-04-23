@@ -172,9 +172,6 @@ public class SwingGui extends JFrame{
 
 	/**
 	 * Should add a food to the database, based on the input strings.
-	 * @param text
-	 * @param text2
-	 * @param text3
 	 */
 	public void addFood(String name, String cals, String algs, String quantity) throws ClassNotFoundException, SQLException {
                 String[] algsList = algs.split(", ");
@@ -252,7 +249,7 @@ public class SwingGui extends JFrame{
 	public void removeFoodFromMeal(String text) {
 		// TODO Needs to take the string, make a food object or search the database for it,
 		// Then just call the remove food method for the current meal.
-		FoodObject temp = new FoodObject(); // This needs to be the food specified from the text string.
+                FoodObject temp = currentMeal.scanFood(text);
 		currentMeal.removeFood(temp);
 		returnToMealSelect();
 		returnToMealDisplay();
