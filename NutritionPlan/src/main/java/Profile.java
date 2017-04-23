@@ -5,6 +5,8 @@ import java.util.ArrayList;
  * 
  */
 public class Profile {
+	
+
 	private String profileName;
 	private ArrayList<Meal> listOfMeals;
 	
@@ -39,8 +41,8 @@ public class Profile {
  */
 	public Profile(Profile dup){
 		this.profileName = dup.getName();
-		for(Meal m : dup.getListOfMeals()){
-			this.addMeal(new Meal(m));
+		for(int i = 0; i < dup.getListOfMeals().size(); i++){
+			this.addMeal(new Meal(dup.getListOfMeals().get(i)));
 		}
 	}
 	
@@ -65,6 +67,13 @@ public class Profile {
  */
 	public ArrayList<Meal> getListOfMeals() {
 		return listOfMeals;
+	}
+	
+/**
+ * Setter for listOfMeals
+ */
+	public void setListOfMeals(ArrayList<Meal> listOfMeals) {
+		this.listOfMeals = listOfMeals;
 	}
 	
 /**

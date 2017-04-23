@@ -43,14 +43,16 @@ public class Meal {
     
 // Copy Constructor
     public Meal(Meal dup){
-        this.foods = dup.getListOfFood();
+      this.foods = dup.getListOfFood();
     	this.totalCalories = dup.getTotalCalories();
     	this.notes = dup.getNotes();
     	this.type = dup.getType();
-
-    	for(FoodObject f : dup.getListOfFood()){
-			this.addFood(new FoodObject(f));
-		}
+    	
+    	if(dup.getListOfFood().size() > 0){
+	    	for(FoodObject f : dup.getListOfFood()){
+				this.addFood(new FoodObject(f));
+			}
+    	}
     }
     
 // Getters and Setters
@@ -99,7 +101,7 @@ public class Meal {
 	
 	// return list of all foods in the meal
 	public ArrayList<FoodObject> getListOfFood(){
-		return foods;
+		return this.foods;
 	}
     
 	// return a STRING listing all of the foodobjects in the meal
