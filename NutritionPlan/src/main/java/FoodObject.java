@@ -33,7 +33,6 @@ public class FoodObject {
 	
 // Copy Constructor
 	public FoodObject(FoodObject dup){
-		System.out.println("Running food copy constructor...");
 		this.name = dup.getName();
 		this.type = dup.getType();
 		this.cal = dup.getCal();

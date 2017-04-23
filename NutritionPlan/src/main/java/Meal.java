@@ -43,7 +43,6 @@ public class Meal {
     
 // Copy Constructor
     public Meal(Meal dup){
-    	System.out.println("Running meal copy constructor...");
     	this.totalCalories = dup.getTotalCalories();
     	this.notes = dup.getNotes();
     	this.type = dup.getType();
