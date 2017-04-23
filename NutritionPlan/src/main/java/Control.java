@@ -29,7 +29,8 @@ public class Control {
         setup();
     }
 	
-// Sets up Profile objects to include their own empty Meal objects on launch
+
+	// Sets up Profile objects to include their own empty Meal objects on launch
 	public void setup() {
 		Meal b1 = new Meal("Breakfast");
 		Meal l1 = new Meal("Lunch"); 
@@ -89,18 +90,47 @@ public class Control {
 	 public void setP3(Profile p){
 		this.p3 = p;
 	 }
+	 
+	public Profile getP1() {
+		return p1;
+	}
+	public Profile getP2() {
+		return p2;
+	}
+	public Profile getP3() {
+		return p3;
+	}
         
 // Copies profile q's information to Profile w, using copy constructors
     public void copyProfile(int q, int w){
-        Profile temp = new Profile(this.selectProfile(q));
+    	Profile tempP = new Profile();
+    	ArrayList<Meal> tempM = new ArrayList<Meal>();
+    	ArrayList<FoodObject> tempF = new ArrayList<FoodObject>();
+    	ArrayList<String> tempA = new ArrayList<String>();
+    	
+    	for(Meal m : this.selectProfile(q).getListOfMeals()){
+    		for(FoodObject f : m.getListOfFood()){
+    			for(String a : f.getAlg()){
+    				String s = "";
+    				s.equals(a);
+    				tempA.add(s);
+    			}
+    			tempF.add(new FoodObject(f.getName(), f.getType(), f.getCal(), tempA, f.getQuantity()));
+    		}
+    		tempM.add(new Meal(tempF, m.getNotes(), m.getTotalCalories(), m.getType()));
+    	}
+    	
+    	tempP.setListOfMeals(tempM);
+    	tempP.getName().equals(this.selectProfile(q).getName());
+    	
         if(w == 1){
-        	this.setP1(temp);
+        	this.setP1(tempP);
         }
         else if(w == 2){
-        	this.setP2(temp);
+        	this.setP2(tempP);
         }
         else if(w == 3){
-        	this.setP3(temp);
+        	this.setP3(tempP);
         }
         else{
         	System.out.println("WARNING: COPY FAILED, INVALID PROFILE SLOT"); // Debug
