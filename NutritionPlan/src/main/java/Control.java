@@ -111,8 +111,7 @@ public class Control {
     	for(Meal m : this.selectProfile(q).getListOfMeals()){
     		for(FoodObject f : m.getListOfFood()){
     			for(String a : f.getAlg()){
-    				String s = "";
-    				s.equals(a);
+                                String s = a;
     				tempA.add(s);
     			}
     			tempF.add(new FoodObject(f.getName(), f.getType(), f.getCal(), tempA, f.getQuantity()));
@@ -121,7 +120,8 @@ public class Control {
     	}
     	
     	tempP.setListOfMeals(tempM);
-    	tempP.getName().equals(this.selectProfile(q).getName());
+        String na = this.selectProfile(q).getName();
+        tempP.setName(na);
     	
         if(w == 1){
         	this.setP1(tempP);
@@ -143,6 +143,7 @@ public class Control {
     }
     
     public void createProfile(int i, String profileName){
+        System.out.println("i should see this");
         Profile temp = new Profile(profileName);
         
         Meal b = new Meal("Breakfast");
@@ -166,6 +167,8 @@ public class Control {
         }
         else if(i == 3){
         	this.setP3(temp);
+        }else{
+            System.out.println("CREATE PROFILE FAILED");
         }
     }
     

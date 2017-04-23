@@ -101,6 +101,7 @@ public class CreateProfilePanel {
 		createPanel.add(createPOne);
 		createPanel.add(createPTwo);
 		createPanel.add(createPThree);
+                createPanel.add(submitCreate);
 		buttonsPanel.add(backToProfiles);
 		profilePanel.add(textPanel, BorderLayout.NORTH);
 		profilePanel.add(swapPanel, BorderLayout.CENTER);
