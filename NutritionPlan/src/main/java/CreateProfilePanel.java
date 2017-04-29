@@ -65,7 +65,7 @@ public class CreateProfilePanel {
 		copyPanel = new JPanel(new FlowLayout());
 		createPanel = new JPanel(new FlowLayout());
 		
-		message = new JTextField("Dummy Panel.");
+		message = new JTextField("Please select whether you'd like to create or copy a profile.");
 		message.setEditable(false);
 		profileNameBox = new JTextField("Enter name here");
 		
@@ -101,7 +101,7 @@ public class CreateProfilePanel {
 		createPanel.add(createPOne);
 		createPanel.add(createPTwo);
 		createPanel.add(createPThree);
-                createPanel.add(submitCreate);
+        createPanel.add(submitCreate);
 		buttonsPanel.add(backToProfiles);
 		profilePanel.add(textPanel, BorderLayout.NORTH);
 		profilePanel.add(swapPanel, BorderLayout.CENTER);

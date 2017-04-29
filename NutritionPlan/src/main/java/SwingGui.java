@@ -227,8 +227,11 @@ public class SwingGui extends JFrame{
 	 * @param String The name of the profile.
 	 */
 	public void createNewProfile(int whichProfile, String name){
-		//This method needs to be renamed to actually interface with the Control class.
 		dataStorage.createProfile(whichProfile, name);
+		String name1 = dataStorage.selectProfile(1).getName();
+		String name2 = dataStorage.selectProfile(2).getName();
+		String name3 = dataStorage.selectProfile(3).getName();
+		psp.updateNames(name1, name2, name3);
 	}
 	
 	/**
@@ -237,8 +240,12 @@ public class SwingGui extends JFrame{
 	 * @param int The profile slot to copy to.
 	 */
 	public void copyProfile(int whichProfile, int whichSlot){
-		//This method needs to be renamed to actually interface with the Control class.
 		dataStorage.copyProfile(whichProfile, whichSlot);
+		String name1 = dataStorage.selectProfile(1).getName();
+		String name2 = dataStorage.selectProfile(2).getName();
+		String name3 = dataStorage.selectProfile(3).getName();
+		psp.updateNames(name1, name2, name3);
+		
 	}
 
 
@@ -247,9 +254,7 @@ public class SwingGui extends JFrame{
 	 * @param text The name of the food to remove.
 	 */
 	public void removeFoodFromMeal(String text) {
-		// TODO Needs to take the string, make a food object or search the database for it,
-		// Then just call the remove food method for the current meal.
-                FoodObject temp = currentMeal.scanFood(text);
+        FoodObject temp = currentMeal.scanFood(text);
 		currentMeal.removeFood(temp);
 		returnToMealSelect();
 		returnToMealDisplay();

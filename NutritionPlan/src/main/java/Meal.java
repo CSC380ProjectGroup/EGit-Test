@@ -86,6 +86,14 @@ public class Meal {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	/**
+	 * Returns the size of the food array to determine if a meal is full.
+	 * @param int
+	 */
+	public int getMealSize(){
+		return foods.size();
+	}
 
 // Methods
 	

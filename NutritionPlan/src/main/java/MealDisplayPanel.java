@@ -143,10 +143,19 @@ public class MealDisplayPanel {
 	 */
 	public void setMeal(Meal temp){
 		currentMeal = temp;
-		allergensList.setText(currentMeal.getAllAlg());
-		String totalCalories = ""+currentMeal.getTotalCalories();
+		String allList = "List of Allergens: "+currentMeal.getAllAlg();
+		allergensList.setText(allList);
+		String totalCalories = "Total Calories for this meal: "+currentMeal.getTotalCalories();
 		totalCals.setText(totalCalories);
-		String foodDescript = currentMeal.giveFood();
+		String foodDescript = "Names of the food: "+currentMeal.giveFood();
 		foodList.setText(foodDescript);
+		if(currentMeal.getMealSize()< 20){
+			searchFood.setEnabled(true);
+			searchFood.setToolTipText("Search for a food to add to the meal.");
+		}
+		else{
+			searchFood.setEnabled(false);
+			searchFood.setToolTipText("This meal has too many food objects. Remove a food to make room.");
+		}
 	}
 }

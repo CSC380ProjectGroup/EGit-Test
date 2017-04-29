@@ -45,9 +45,13 @@ public class ProfileSelectPanel{
 		//These text fields need to be assigned the names of the profiles, once 
 		//Database integration is complete.
 		profileOneText = new JTextField("Profile 1.");
+		profileOneText.setEditable(false);
 		profileTwoText = new JTextField("Profile 2.");
+		profileTwoText.setEditable(false);
 		profileThreeText = new JTextField("Profile 3.");
+		profileThreeText.setEditable(false);
 		profileDisplayMessage = new JTextField("Welcome! Please select a profile.");
+		profileDisplayMessage.setEditable(false);
 		
 		displaysPanel.add(profileOneText);
 		displaysPanel.add(selectProfile1);
@@ -89,4 +93,15 @@ public class ProfileSelectPanel{
 		return profilePanel;
 	}
 	
+	/**
+	 * Takes in three profile names and updates the profile name text boxes.
+	 * @param String First profile name
+	 * @param String Second profile name
+	 * @param String Third profile name
+	 */
+	public void updateNames(String name1, String name2, String name3){
+		profileOneText.setText(name1);
+		profileTwoText.setText(name2);
+		profileThreeText.setText(name3);
+	}
 }
