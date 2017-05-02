@@ -1,4 +1,3 @@
-import java.sql.SQLException;
 import java.util.*;
 
 /**
@@ -29,7 +28,7 @@ public class Control {
         setup();
     }
 	
-	// Sets up Profile objects to include their own empty Meal objects on launch
+// Sets up Profile objects to include their own empty Meal objects on launch
 	public void setup() {
 		Meal b1 = new Meal("Breakfast");
 		Meal l1 = new Meal("Lunch"); 
@@ -132,18 +131,12 @@ public class Control {
         	this.setP3(tempP);
         }
         else{
-        	System.out.println("WARNING: COPY FAILED, INVALID PROFILE SLOT"); // Debug
+        	System.out.println("WARNING: COPY FAILED, INVALID PROFILE SLOT"); // Print in case something goes wrong
         }
-    }
-    
-// Get Meal object from given Profile
-    public Meal getMeal(Profile p, String mealName){
-        return p.getMeal(mealName);
     }
     
 // Replace the profile in the slot 'i' with a new profile altogether
     public void createProfile(int i, String profileName){
-        System.out.println("i should see this");
         Profile temp = new Profile(profileName);
         
         Meal b = new Meal("Breakfast");
@@ -172,42 +165,4 @@ public class Control {
             System.out.println("CREATE PROFILE FAILED");
         }
     }
-    
-// Create a Meal object
-    public Meal createMeal(String type){
-        Meal m = new Meal();
-        m.setType(type);
-        return m;
-    }
-    
-    public void addFoodToMeal(Meal m, String foodName) throws ClassNotFoundException, SQLException{
-        FoodObject f = DBStuff.getFoodDB(foodName);
-        m.addFood(f);
-    }
-    
-    public void addMeal(Profile p, String type){
-        Meal m = createMeal(type);
-        p.addMeal(m);
-    }
-        
-    public int getMealCal(Meal m){
-    	return m.getTotalCalories();
-    }
-    
-	public String getMealAlg(Meal m){
-    	return m.getAllAlg();
-    }
-	
-	public String getMealFood(Meal m){
-		return m.giveFood();
-	}
-
-	public String getMealNotes(Meal m){
-		return m.getNotes();
-	}
-	
-	public void setMealNotes(Meal m, String n){
-		m.setNotes(n);
-	}
-
 }
