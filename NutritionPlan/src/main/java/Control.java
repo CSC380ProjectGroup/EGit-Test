@@ -81,16 +81,16 @@ public class Control {
 	}
 	
 // Setters for the three Profiles
-	 public void setP1(Profile p){
-	    this.p1 = p;
-	 }
-	 public void setP2(Profile p){
+	public void setP1(Profile p) {
+		this.p1 = p;
+	}
+	public void setP2(Profile p) {
 		this.p2 = p;
-	 }
-	 public void setP3(Profile p){
+	}
+	public void setP3(Profile p) {
 		this.p3 = p;
-	 }
-	 
+	}
+	
 	public Profile getP1() {
 		return p1;
 	}
@@ -101,7 +101,7 @@ public class Control {
 		return p3;
 	}
         
-// Copies profile q's information to Profile w, using copy constructors
+// Copies profile q's information to Profile w
     public void copyProfile(int q, int w){
     	Profile tempP = new Profile();
     	ArrayList<Meal> tempM = new ArrayList<Meal>();
@@ -110,10 +110,10 @@ public class Control {
     	
     	for(Meal m : this.selectProfile(q).getListOfMeals()){
     		for(FoodObject f : m.getListOfFood()){
-    			for(String a : f.getAlg()){
-                                String s = a;
-    				tempA.add(s);
-    			}
+				for (String a : f.getAlg()){
+					String s = a;
+					tempA.add(s);
+				}
     			tempF.add(new FoodObject(f.getName(), f.getType(), f.getCal(), tempA, f.getQuantity()));
     		}
     		tempM.add(new Meal(tempF, m.getNotes(), m.getTotalCalories(), m.getType()));
@@ -142,6 +142,7 @@ public class Control {
         return p.getMeal(mealName);
     }
     
+// Replace the profile in the slot 'i' with a new profile altogether
     public void createProfile(int i, String profileName){
         System.out.println("i should see this");
         Profile temp = new Profile(profileName);
@@ -167,7 +168,8 @@ public class Control {
         }
         else if(i == 3){
         	this.setP3(temp);
-        }else{
+        }
+        else{
             System.out.println("CREATE PROFILE FAILED");
         }
     }

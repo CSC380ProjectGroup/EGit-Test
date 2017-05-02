@@ -5,11 +5,9 @@ import java.util.ArrayList;
 
 /**
  * Test certain methods used in Control
- *
  */
 
 public class ControlTest {
-	
 	
 	Control c = new Control();
 	
@@ -38,7 +36,6 @@ public class ControlTest {
 		System.out.println("\n" + c.getP1().getMeal("Other").toString());
 	}
 	
-
-
+	//TODO: Test for createProfile
 	
 }
