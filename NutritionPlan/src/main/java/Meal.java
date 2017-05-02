@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  *
@@ -8,9 +7,8 @@ import java.util.Date;
 
 public class Meal {
 	
-// instance variables
+// Instance Variables
     private int totalCalories;
-    //Date mealDate = new Date();
     private String type;
     private String notes;
     ArrayList<FoodObject> foods;
@@ -18,13 +16,12 @@ public class Meal {
 // Default Constructor
     public Meal() {
         totalCalories = 0;
-        //mealDate = null;
         notes = "";
         foods = new ArrayList<FoodObject>();
         type = "";
     }
     
-// Constructor for establishing meal type only (used in Main)
+// Constructor for establishing Meal type only
     public Meal(String t){
     	totalCalories = 0;
         notes = "";
@@ -41,20 +38,6 @@ public class Meal {
         type = t;
     }
     
-// Copy Constructor
-    public Meal(Meal dup){
-      this.foods = dup.getListOfFood();
-    	this.totalCalories = dup.getTotalCalories();
-    	this.notes = dup.getNotes();
-    	this.type = dup.getType();
-    	
-    	if(dup.getListOfFood().size() > 0){
-	    	for(FoodObject f : dup.getListOfFood()){
-				this.addFood(new FoodObject(f));
-			}
-    	}
-    }
-    
 // Getters and Setters
     public int getTotalCalories() {
         return totalCalories;
@@ -62,14 +45,6 @@ public class Meal {
     public void setTotalCalories(int c) {
         totalCalories = c;
     }
-    
-	// public Date getMealDate() {
-	// return mealDate;
-	// }
-	// public void setMealDate(Date date) {
-	// mealDate = date;
-	// }
-    
     public String getNotes() {
         return notes;
     }
@@ -97,7 +72,7 @@ public class Meal {
 
 // Methods
 	
-	// remove a food object from the list
+	// Remove a Food object from the list
 	public void removeFood(FoodObject food) {
         if (foods.contains(food)) {
             foods.remove(food);
@@ -107,12 +82,12 @@ public class Meal {
         }
     }
 	
-	// return list of all foods in the meal
+	// Return list of all Foods in the meal
 	public ArrayList<FoodObject> getListOfFood(){
 		return this.foods;
 	}
     
-	// return a STRING listing all of the foodobjects in the meal
+	// Return a String listing all of the FoodObjects in the meal
 	public String giveFood(){
 		StringBuilder sb = new StringBuilder();
 		if(this.foods.isEmpty()){
@@ -126,32 +101,31 @@ public class Meal {
 		return sb.toString();
 	}
 	
-	// return a food in the meal with a matching name, otherwise return null
-	public FoodObject scanFood(String n){
-		for(FoodObject f : this.foods){
-			if(f.getName().equals(n)){
+	// Return a Food in the Meal with a matching name, otherwise return null
+	public FoodObject scanFood(String n) {
+		for (FoodObject f : this.foods) {
+			if (f.getName().equals(n)) {
 				return f;
 			}
 		}
-			System.out.println("DEBUG: Food object not found, returning null");
-			return null;
+		System.out.println("DEBUG: Food object not found, returning null");
+		return null;
 	}
 	
-	// Return a STRING listing all allergies in the entire Meal
-	public String getAllAlg(){
+	// Return a String listing all Allergies in the entire Meal
+	public String getAllAlg() {
 		StringBuilder sb = new StringBuilder();
-    	if(this.getListOfFood().isEmpty()) {
-    		return "None.";
-    	}
-    	else {
-    		for(int i = 0; i < this.getListOfFood().size(); i++) {
-    			String temp = this.getListOfFood().get(i).printAlg();
-    			if(!temp.equals("None.")) {
-        			sb.append(temp);
-    			}
-        	}
-        }
-    		return sb.toString();
+		if (this.getListOfFood().isEmpty()) {
+			return "None.";
+		} else {
+			for (int i = 0; i < this.getListOfFood().size(); i++) {
+				String temp = this.getListOfFood().get(i).printAlg();
+				if (!temp.equals("None.")) {
+					sb.append(temp);
+				}
+			}
+		}
+		return sb.toString();
 	}
 	
 	// return a string containing all information for the meal

@@ -37,16 +37,6 @@ public class Profile {
 	}
 	
 /**
- * Copy Constructor
- */
-	public Profile(Profile dup){
-		this.profileName = dup.getName();
-		for(int i = 0; i < dup.getListOfMeals().size(); i++){
-			this.addMeal(new Meal(dup.getListOfMeals().get(i)));
-		}
-	}
-	
-/**
  * Sets the name for this profile.
  * @param String 
  */

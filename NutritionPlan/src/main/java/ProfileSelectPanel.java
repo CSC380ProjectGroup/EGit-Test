@@ -1,8 +1,7 @@
 import javax.swing.*;
-import javax.swing.SwingUtilities.*;
 import java.awt.event.*;
 import java.awt.*;
-//test
+
 /**
  * A specific class to represent the profile selection panel of the GUI.
  * @author DZB

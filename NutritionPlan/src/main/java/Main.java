@@ -187,6 +187,6 @@ public class Main {
 	/**
 	 * Run Program (GUI Interface)
 	 */
-		SwingGui test = new SwingGui();
+		SwingGui GUI = new SwingGui();
 	}
 }

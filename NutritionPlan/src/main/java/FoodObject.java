@@ -30,15 +30,6 @@ public class FoodObject {
 		alg = a;
 		quantity = q;
 	}
-	
-// Copy Constructor
-	public FoodObject(FoodObject dup){
-		this.name = dup.getName();
-		this.type = dup.getType();
-		this.cal = dup.getCal();
-		this.alg = dup.getAlg();
-		this.quantity = dup.getQuantity();
-	}
 
 // Getters and Setters
 	public String getName() {

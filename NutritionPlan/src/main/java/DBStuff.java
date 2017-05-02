@@ -17,7 +17,6 @@ public class DBStuff {
         String name = food.getName();
         String type = food.getType();
         int cal = food.getCal();
-        int q = food.getQuantity();
 
         //loading drivers for mysql
         Class.forName("com.mysql.jdbc.Driver");
@@ -124,7 +123,6 @@ public class DBStuff {
         return food;
     }
 
-
     private static ArrayList<String> getAlgArray(String n) throws ClassNotFoundException, SQLException {
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -218,4 +216,5 @@ public class DBStuff {
             }
         }
     }
+    
 }

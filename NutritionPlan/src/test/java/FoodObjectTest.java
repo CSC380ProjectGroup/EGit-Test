@@ -16,54 +16,50 @@ public class FoodObjectTest {
 	FoodObject food3 = new FoodObject("Impossible Fruit", "fruit", -125, new ArrayList<String>(), 1);
 	FoodObject dFood = new FoodObject(); // FoodObject with default values
 	
+// True if calories is nonnegative, false otherwise
 	@Test
-	public void checkCalTest() { //true if calories is nonnegative, false otherwise
+	public void checkCalTest() { 
 		allerg.add("peanut");
 		assertTrue(food.checkCal(food.getCal()));
 		assertFalse(food.checkCal(food3.getCal()));
 		allerg.clear();
 	}
 	
+// True if food contains any allergies (i.e. allergy arraylist is not empty), false otherwise
 	@Test
-	public void checkAlgTest() { // true if food contains any allergies (i.e.
-									// allergy arraylist is not empty), false
-									// otherwise
+	public void checkAlgTest() { 
 		allerg.add("peanut");
 		assertTrue(food.checkAlg());
 		assertFalse(food2.checkAlg());
 		allerg.clear();
 	}
 	
+// Should triple and double the tested objects respectively
 	@Test
-	public void adjustCalTest() { // should triple and double the tested objects
-									// respectively
+	public void adjustCalTest() { 
 		allerg.add("peanut");
 		// food.adjustCal(3);
 		// food2.adjustCal(2);
-		food.setQuantity(3); // setQuantity() runs the adjustCal() method
-		food2.setQuantity(2); // (setting quantity and running adjustCal() do
-								// essentially the same thing)
-
+		food.setQuantity(3);
+		food2.setQuantity(2); 
 		assertEquals(540, food.getCal());
 		assertEquals(250, food2.getCal());
 		allerg.clear();
 	}
 	
+// True if findAlg() finds a particular allergy, otherwise false	
 	@Test
-	public void findAlgTest() { // true if findAlg() finds a particular allergy,
-								// otherwise false
+	public void findAlgTest() { 
 		allerg.add("peanut");
-
 		assertTrue(food.findAlg("peanut"));
 		assertFalse(dFood.findAlg("peanut"));
 	}
 	
+// Tests positive if addAlg() successfully adds the expected allergy string
 	@Test
-	public void addAlgTest() { // tests positive if addAlg() successfully adds
-								// the expected allergy string
+	public void addAlgTest() { 
 		allerg.add("peanut");
 		dFood.addAlg("peanut");
-
 		assertEquals(dFood.printAlg(), food.printAlg());
 		allerg.clear();
 	}
