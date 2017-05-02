@@ -2,6 +2,7 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * Test certain methods used in Control
@@ -10,34 +11,40 @@ import java.util.ArrayList;
 public class ControlTest {
 	
 	Control c = new Control();
-	
-	//Test Lists
-    ArrayList<String> list = new ArrayList<String>();
-    ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
-    
-    //Test Foods
+
+	// Test Lists
+	ArrayList<String> list = new ArrayList<String>();
+	ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
+
+	// Test Foods
 	FoodObject apple = new FoodObject("apple", "fruit", 100, list, 1);
 	FoodObject banana = new FoodObject("banana", "fruit", 80, list, 1);
 	
-
+// checks if copyProfile copies data properly
 	@Test
-	public void copyProfileTest(){
-
+	public void copyProfileTest() {
 		c.getP1().getMeal("Other").addFood(apple);
 		c.getP1().getMeal("Other").addFood(banana);
-		System.out.println(c.getP1().getMeal("Other").toString());
-		
-		System.out.println("Copying profile...");
-		c.copyProfile(1,2);
-		System.out.println("Profile copied.\n");
-		
-		System.out.println(c.getP2().getMeal("Other").toString());
-		
-		System.out.println("\n" + c.getP1().getMeal("Other").toString());
+		c.copyProfile(1, 2);
+
+		assertEquals(c.getP1().getMeal("Other").toString(), c.getP2().getMeal("Other").toString());
 	}
 	
-	//TODO: Test for createProfile
-	public void createProfileTest(){
-		
+// the created profile's output should be the equivalent of a newly created Profile object with the essential meals
+	@Test
+	public void createProfileTest() { 
+		Profile pTest = new Profile("Test");
+		Meal b = new Meal("Breakfast");
+		Meal l = new Meal("Lunch");
+		Meal d = new Meal("Dinner");
+		Meal o = new Meal("Other");
+		ArrayList<Meal> mealsT = new ArrayList<Meal>();
+		mealsT.addAll(Arrays.asList(b, l, d, o));
+		pTest.setListOfMeals(mealsT);
+		String sTest = pTest.getListOfMeals().toString();
+
+		c.createProfile(2, "Test");
+		assertEquals(pTest.getName(), c.getP2().getName());
+		assertEquals(sTest, c.getP2().getListOfMeals().toString());
 	}
 }
