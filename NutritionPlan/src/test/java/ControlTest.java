@@ -37,5 +37,7 @@ public class ControlTest {
 	}
 	
 	//TODO: Test for createProfile
-	
+	public void createProfileTest(){
+		
+	}
 }

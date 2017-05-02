@@ -173,7 +173,8 @@ public class FoodPanel {
 		String calString = ""+temp.getCal();
 		calories.setText(calString);
 		allergens.setText(temp.printAlg());
-		quantity.setText(temp.getType());
+		String tempQ = ""+temp.getQuantity();
+		quantity.setText(tempQ);
 	}
 }
 

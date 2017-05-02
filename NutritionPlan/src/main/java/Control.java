@@ -29,7 +29,6 @@ public class Control {
         setup();
     }
 	
-
 	// Sets up Profile objects to include their own empty Meal objects on launch
 	public void setup() {
 		Meal b1 = new Meal("Breakfast");
