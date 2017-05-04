@@ -104,10 +104,10 @@ public class Control {
     	Profile tempP = new Profile();
     	ArrayList<Meal> tempM = new ArrayList<Meal>();
     	ArrayList<FoodObject> tempF = new ArrayList<FoodObject>();
-    	ArrayList<String> tempA = new ArrayList<String>();
     	
     	for(Meal m : this.selectProfile(q).getListOfMeals()){
     		for(FoodObject f : m.getListOfFood()){
+                    ArrayList<String> tempA = new ArrayList<String>();
 				for (String a : f.getAlg()){
 					String s = a;
 					tempA.add(s);
