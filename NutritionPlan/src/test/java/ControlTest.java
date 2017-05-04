@@ -14,17 +14,20 @@ public class ControlTest {
 
 	// Test Lists
 	ArrayList<String> list = new ArrayList<String>();
+	ArrayList<String> list2 = new ArrayList<String>();
 	ArrayList<FoodObject> foodList = new ArrayList<FoodObject>();
 
 	// Test Foods
 	FoodObject apple = new FoodObject("apple", "fruit", 100, list, 1);
-	FoodObject banana = new FoodObject("banana", "fruit", 80, list, 1);
+	FoodObject banana = new FoodObject("banana", "fruit", 80, list2, 1);
 	
 // checks if copyProfile copies data properly
 	@Test
 	public void copyProfileTest() {
+		list.add("thing");
 		c.getP1().getMeal("Other").addFood(apple);
 		c.getP1().getMeal("Other").addFood(banana);
+		
 		c.copyProfile(1, 2);
 
 		assertEquals(c.getP1().getMeal("Other").toString(), c.getP2().getMeal("Other").toString());
