@@ -131,6 +131,6 @@ public class Meal {
 	// return a string containing all information for the meal
 	public String toString() {
 		return "TYPE: " + getType() + "\nTOTAL CALORIES: " + getTotalCalories() + "\nFOOD: " + giveFood() + "\nNOTES: "
-				+ getNotes();
+				+ getNotes() + "\nALLERGIES: " + getAllAlg();
 	}
 }

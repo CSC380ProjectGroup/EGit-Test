@@ -92,7 +92,7 @@ public class MealTest {
     public void testGiveFood() {
         foodList.add(apple);
         foodList.add(banana);
-        assertEquals("apple\nbanana\n", instance.giveFood());
+        assertEquals("apple, banana, ", instance.giveFood());
         foodList.clear();
     }
     
@@ -126,7 +126,7 @@ public class MealTest {
     	
     	Meal empty = new Meal();
     	
-    	assertEquals("peanut\nmilk\n", m.getAllAlg());
+    	assertEquals("peanut, milk, ", m.getAllAlg());
     	assertEquals("None.", empty.getAllAlg());
     	allerg1.clear();
     	allerg2.clear();
